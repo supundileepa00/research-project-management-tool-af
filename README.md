@@ -2,4 +2,4 @@
 
 Here lies a description of the project.
 
-https://cdn-icons-png.flaticon.com/512/7169/7169850.png
+![7169850](https://user-images.githubusercontent.com/89182652/165149196-897064ce-9b61-455e-86ba-676ea590a980.png)
