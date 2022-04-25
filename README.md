@@ -1,4 +1,4 @@
-# This is our MERN project for the course - Application Frameworks
+# This is our MERN project for the module - Application Frameworks
 
 Here lies a description of the project.
 
