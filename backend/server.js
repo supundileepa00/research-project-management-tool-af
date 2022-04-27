@@ -30,6 +30,9 @@ connection.once("open", () => {
 const StudentRouter = require("./routes/adminRoutes/student");
 app.use("/rpmt/students", StudentRouter);
 
+//const TopicRouter = require("./routes/adminRoutes/topics");
+//app.use("/rpmt/TopicSelect", TopicRouter);
+
 //load/run app on the port
 app.listen(PORT, () => {
   console.log("Server is up and running on ", PORT);

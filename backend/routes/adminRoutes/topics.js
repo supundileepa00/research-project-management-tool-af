@@ -1,8 +1,8 @@
 const router = require("express").Router();
 
 //import model
-let TopicSelect = require("./../../models/adminModels/topics.js");
-const { get } = require("./student");
+let TopicSelect = require("./../../models/adminModels/TopicSelect.js");
+//const { get } = require("./student");
 
 router.route("/registerTopic").post(async(req,res) =>{
     const studentId = req.body.studentId;
