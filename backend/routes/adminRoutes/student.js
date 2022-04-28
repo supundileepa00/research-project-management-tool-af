@@ -91,7 +91,7 @@ router.route("/get/:id").get(async (req, res) => {
 
   const user = await Student.find({ idNumber: studentId })
     .then((student) => {
-      res.status(200).send({ status: "User fetched", student });
+      res.status(200).send({ status: "Student Details", student });
     })
     .catch((err) => {
       console.log(err.message);
