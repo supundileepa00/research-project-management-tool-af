@@ -1,13 +1,17 @@
-//import logo from './logo.svg';
-import './App.css';
+import { Routes, BrowserRouter, Route } from "react-router-dom";
+import "./App.css";
+
+import TopicRegister from "./components/Supervisor/TopicicRegister";
 
 function App() {
   return (
-    <div className="App">
-     
-     <h1>hello react</h1>
+    <BrowserRouter>
+      {/* routes */}
 
-    </div>
+      <Routes>
+        <Route path="/topicRegister" element={<TopicRegister />}></Route>
+      </Routes>
+    </BrowserRouter>
   );
 }
 
