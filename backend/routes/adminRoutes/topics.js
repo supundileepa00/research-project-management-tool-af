@@ -37,7 +37,7 @@ router.route("/registerTopic").post(async (req, res) => {
 router.route("/").get(async (req, res) => {
   TopicSelect.find()
     .then((topics) => {
-      res.json(TopicSelect);
+      res.json(topics);
     })
     .catch((err) => {
       console.log(err);
