@@ -13,12 +13,12 @@ import Grid from "@mui/material/Grid";
 //import { useEffect, useState } from "react";
 
 function TopicRegister() {
-  const [name, setName] = React.useState("");
-  const [registerId, setRegisterId] = React.useState("");
-  const [groupId, setGroupId] = React.useState("");
-  const [faculty, setFaculty] = React.useState("");
-  const [department, setDepartment] = React.useState("");
-  const [topic, setTopic] = React.useState("");
+ //const [name, setName] = React.useState("");
+ // const [registerId, setRegisterId] = React.useState("");
+ // const [groupId, setGroupId] = React.useState("");
+ // const [faculty, setFaculty] = React.useState("");
+ // const [department, setDepartment] = React.useState("");
+ // const [topic, setTopic] = React.useState("");
 
   const [age, setAge] = React.useState("");
 
@@ -40,14 +40,7 @@ function TopicRegister() {
           autoComplete="off"
         >
           <TextField id="name" label="Name" variant="outlined" />
-          <input
-            type="text"
-            class="App"
-            id="name"
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-          />
+         
         </Box>
 
         <Box
@@ -63,24 +56,9 @@ function TopicRegister() {
             label="Register Number"
             variant="outlined"
           />
-          <input
-            type="text"
-            class="App"
-            id="registerNumber"
-            onChange={(e) => {
-              setRegisterId(e.target.value);
-            }}
-          />
 
           <TextField id="groupId" label="Group Id" variant="outlined" />
-          <input
-            type="text"
-            class="App"
-            id="groupId"
-            onChange={(e) => {
-              setGroupId(e.target.value);
-            }}
-          />
+
         </Box>
 
         <Box
@@ -92,23 +70,9 @@ function TopicRegister() {
           autoComplete="off"
         >
           <TextField id="faculty" label="Faculty" variant="outlined" />
-          <input
-            type="text"
-            class="App"
-            id="faculty"
-            onChange={(e) => {
-              setFaculty(e.target.value);
-            }}
-          />
+          
           <TextField id="department" label="Department" variant="outlined" />
-          <input
-            type="text"
-            class="App"
-            id="department"
-            onChange={(e) => {
-              setDepartment(e.target.value);
-            }}
-          />
+         
         </Box>
 
         <Box
