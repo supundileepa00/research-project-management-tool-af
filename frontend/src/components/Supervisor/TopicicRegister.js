@@ -40,14 +40,6 @@ function TopicRegister() {
           autoComplete="off"
         >
           <TextField id="name" label="Name" variant="outlined" />
-          <input
-            type="text"
-            class="App"
-            id="name"
-            onChange={(e) => {
-              setName(e.target.value);
-            }}
-          />
         </Box>
 
         <Box
