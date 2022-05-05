@@ -140,18 +140,9 @@ function TopicRegister() {
           <TextField id="topic" label="Topic" variant="outlined" />
         </Box>
 
-        <Box
-          component="form"
-          sx={{
-            "& > :not(style)": { m: 1, width: "20ch" },
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <Stack spacing={2} direction="column">
-            <Button variant="contained">Submit</Button>
-          </Stack>
-        </Box>
+        <center>
+          <Button variant="contained">Submit</Button>
+        </center>
       </div>
     </div>
   );
