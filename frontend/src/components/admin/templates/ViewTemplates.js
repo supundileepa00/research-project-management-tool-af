@@ -54,6 +54,9 @@ function ViewTemplates() {
             <CardActions>
               <Button
                 size="small"
+                style={{
+                  color: "#455a64",
+                }}
                 onClick={() => {
                   window.open(template.templateDocument);
                 }}

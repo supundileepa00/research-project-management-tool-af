@@ -3,7 +3,8 @@ import { Box } from "@mui/system";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Loader from "../loader/Loader";
-import ResponsiveAppBar from "../ResponsiveAppBar";
+import Typography from "@mui/material/Typography";
+import Input from "@mui/material/Input";
 
 function AddTemplate() {
   const [loading, setLoading] = useState(false);
@@ -11,8 +12,10 @@ function AddTemplate() {
   const [title, setTitle] = useState("");
   const [description, setDescription] = useState("");
   const [documentName, setDocumentName] = useState("");
+  const [showText, setShowText] = useState(false);
 
   const handleSubmit = (e) => {
+    setShowText(false);
     setLoading(true);
     const formData = new FormData();
     var form = document.getElementById("form");
@@ -38,6 +41,7 @@ function AddTemplate() {
         setDocumentName("");
         form.reset();
         setLoading(false);
+        setShowText(true);
       })
       .catch((err) => {
         alert(err);
@@ -59,7 +63,7 @@ function AddTemplate() {
 
   return (
     <div>
-      <ResponsiveAppBar />
+      {/* <ResponsiveAppBar /> */}
       <Container>
         <Paper elevation={7}>
           <Box sx={{ m: 5 }}>
@@ -113,9 +117,11 @@ function AddTemplate() {
                 />
                 <br />
                 <br />
-                <input
+                <Input
                   id="raised-button-file"
                   type="file"
+                  color="primary"
+                  required
                   onChange={(e) => {
                     setDocumentName(e.target.files[0]);
                   }}
@@ -131,6 +137,11 @@ function AddTemplate() {
                 >
                   Add Template/Document
                 </Button>
+                {showText ? (
+                  <Typography variant="subtitle1" color="#00e676">
+                    Details Added
+                  </Typography>
+                ) : null}
                 {loading ? <Loader /> : null}
                 <br />
                 <br />

@@ -28,7 +28,6 @@ const StaffSchema = new Schema({
   },
   password: {
     type: String,
-    require: true,
   },
 });
 

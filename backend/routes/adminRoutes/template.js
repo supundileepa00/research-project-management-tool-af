@@ -89,9 +89,9 @@ router.route("/delete/:id").delete(async (req, res) => {
 
 //get one template
 router.route("/get/:id").get(async (req, res) => {
-  let templateID = req.params.id;
+  let id = req.params.id;
 
-  const template = await Template.find({ id: templateID })
+  const template = await Template.findById(id)
     .then((template) => {
       res.status(200).send({ status: "Template Details", template });
     })
@@ -122,6 +122,7 @@ router
 
       const id = req.body.id;
       const title = req.body.title;
+      const type = req.body.type;
       const description = req.body.description;
       const postedDate = req.body.postedDate;
       const templateDocument = result.secure_url;
@@ -129,6 +130,7 @@ router
 
       const updateTemplate = {
         id,
+        type,
         title,
         description,
         postedDate,

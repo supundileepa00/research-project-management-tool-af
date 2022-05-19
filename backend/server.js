@@ -41,3 +41,6 @@ app.use("/rpmt/staff", StaffRouter);
 
 const templateRouter = require("./routes/adminRoutes/template");
 app.use("/rpmt/templates", templateRouter);
+
+const LoginRouter = require("./routes/adminRoutes/logins");
+app.use("/rpmt/users", LoginRouter);
