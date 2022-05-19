@@ -8,7 +8,6 @@ router.route("/registerStudent").post((req, res) => {
   const idNumber = req.body.idNumber;
   const degree = req.body.degree;
   const specialization = req.body.specialization;
-  const username = req.body.username;
   const password = req.body.password;
   const role = req.body.role;
 
@@ -17,7 +16,6 @@ router.route("/registerStudent").post((req, res) => {
     idNumber,
     degree,
     specialization,
-    username,
     password,
     role,
   });
@@ -47,15 +45,13 @@ router.route("/").get((req, res) => {
 router.route("/update/:id").put(async (req, res) => {
   let studentId = req.params.id;
 
-  const { name, idNumber, degree, specialization, username, password, role } =
-    req.body;
+  const { name, idNumber, degree, specialization, password, role } = req.body;
 
   const updateStudent = {
     name,
     idNumber,
     degree,
     specialization,
-    username,
     password,
     role,
   };
@@ -91,7 +87,7 @@ router.route("/get/:id").get(async (req, res) => {
 
   const user = await Student.find({ idNumber: studentId })
     .then((student) => {
-      res.status(200).send({ status: "User fetched", student });
+      res.status(200).send({ status: "Student Details", student });
     })
     .catch((err) => {
       console.log(err.message);
