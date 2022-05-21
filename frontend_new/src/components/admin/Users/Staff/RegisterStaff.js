@@ -10,6 +10,7 @@ import FormHelperText from "@mui/material/FormHelperText";
 import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function RegisterStaff() {
   const [loading, setLoading] = useState(false);
@@ -93,19 +94,24 @@ function RegisterStaff() {
           alert(err);
         });
 
-      alert("Registration Succesfull");
+      Swal.fire("Registration Succesfull!", "Click ok to Continue", "success");
 
       navigate("/");
 
       setSetName("");
       setID("");
-      faculty("");
+      setFaculty("");
       setDepartment("");
       setPassword("");
       setType("");
       setresearchInterest("");
     } else {
-      alert("Passowrds Not Matched!!");
+      Swal.fire({
+        title: "Incorrect Password!!",
+        text: "Please enter your password again.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
     }
   };
 
@@ -191,10 +197,24 @@ function RegisterStaff() {
                     onChange={handleDepartment}
                     required
                   >
-                    <MenuItem value={"Dept1"}>Dept1</MenuItem>
-                    <MenuItem value={"Dept2"}>Dept2</MenuItem>
-                    <MenuItem value={"Dept3"}>Dept3</MenuItem>
-                    <MenuItem value={"Dept4"}>Dept4</MenuItem>
+                    <MenuItem value={"Dept1"}>
+                      Computer Science and Software Engineering
+                    </MenuItem>
+                    <MenuItem value={"Data Science<"}>Data Science</MenuItem>
+                    <MenuItem value={"Interactive Media"}>
+                      Interactive Media
+                    </MenuItem>
+                    <MenuItem value={"Information Technology"}>
+                      Information Technology
+                    </MenuItem>
+                    <MenuItem value={"Civil Engineeringy"}>
+                      Civil Engineeringy
+                    </MenuItem>
+                    <MenuItem value={"Electrical & Electronic Engineeringy"}>
+                      Electrical & Electronic Engineeringy
+                    </MenuItem>
+                    <MenuItem value={"Buisness"}>Buisness</MenuItem>
+                    <MenuItem value={"Other"}>Other</MenuItem>
                   </Select>
                 </FormControl>
                 <br />

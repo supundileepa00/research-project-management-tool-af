@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Container, Grid } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -14,26 +14,45 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import Swal from "sweetalert2";
 
 function ViewStaff() {
   const navigate = useNavigate();
 
-  const [satff, setStaff] = useState([]);
+  const [staff, setStaff] = useState([]);
 
   const register = () => {
     navigate("/registerStaff");
   };
 
-  // const deleteTemplate = (id) => {
-  //   setOpen(false);
-  //   axios
-  //     .delete("http://localhost:5000/rpmt/templates/delete/" + id)
-  //     .then(() => {
-  //       window.location.reload(false);
-  //     });
-  // };
+  const deletestaff = async (id, idNumber) => {
+    await axios
+      .delete("http://localhost:5000/rpmt/staff/delete/" + id)
+      .then((res) => {
+        console.log(res);
+      });
+
+    await axios
+      .delete("http://localhost:5000/rpmt/users/deleteByUserID/" + idNumber)
+      .then((res) => {
+        console.log(res);
+      });
+    loadStaffData();
+  };
+
+  const loadStaffData = () => {
+    axios
+      .get("http://localhost:5000/rpmt/staff/")
+      .then((res) => {
+        setStaff(res.data);
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
   useEffect(() => {
-    function getStudents() {
+    function getStaff() {
       axios
         .get("http://localhost:5000/rpmt/staff/")
         .then((res) => {
@@ -44,7 +63,7 @@ function ViewStaff() {
           console.log(err);
         });
     }
-    getStudents();
+    getStaff();
   }, []);
   return (
     <div>
@@ -74,28 +93,48 @@ function ViewStaff() {
                   </TableRow>
                 </TableHead>
                 <TableBody>
-                  {satff.map((student, key) => (
+                  {staff.map((staff, key) => (
                     <TableRow
                       key={key}
                       sx={{ "&:last-child td, &:last-child th": { border: 0 } }}
                     >
-                      <TableCell align="left">{student.name}</TableCell>
-                      <TableCell align="left">{student.idNumber}</TableCell>
-                      <TableCell align="left">{student.department}</TableCell>
-                      <TableCell align="left">{student.faculty}</TableCell>
+                      <TableCell align="left">{staff.name}</TableCell>
+                      <TableCell align="left">{staff.idNumber}</TableCell>
+                      <TableCell align="left">{staff.department}</TableCell>
+                      <TableCell align="left">{staff.faculty}</TableCell>
 
                       <TableCell align="left">
-                        {student.researchInterest}
+                        {staff.researchInterest}
                       </TableCell>
 
-                      <TableCell align="left">{student.type}</TableCell>
+                      <TableCell align="left">{staff.type}</TableCell>
                       <TableCell align="left">
-                        <Button variant="contained" color="warning">
-                          Update
-                        </Button>
+                        <Link to={"update/" + staff._id} className="edit">
+                          <Button variant="contained" color="warning">
+                            Update
+                          </Button>
+                        </Link>
                       </TableCell>
                       <TableCell align="left">
-                        <Button variant="contained" color="error">
+                        <Button
+                          variant="contained"
+                          color="error"
+                          onClick={() => {
+                            Swal.fire({
+                              title: "Warning!",
+                              text: "Do you want to delete the user?",
+                              icon: "warning",
+                              showCancelButton: true,
+                              confirmButtonText: "Ok",
+                              confirmButtonColor: "#C81E1E",
+                            }).then((result) => {
+                              if (result.isConfirmed) {
+                                deletestaff(staff._id, staff.idNumber);
+                              } else {
+                              }
+                            });
+                          }}
+                        >
                           Delete
                         </Button>
                       </TableCell>

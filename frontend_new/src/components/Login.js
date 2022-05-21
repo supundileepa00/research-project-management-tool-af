@@ -44,6 +44,8 @@ function Login() {
         navigate("/student");
       } else if (data.role === "supervisor") {
         navigate("/supervisor");
+      } else if (data.role === "admin") {
+        navigate("/admin-home");
       }
     } else if (data.status === "no_user") {
       Swal.fire({
@@ -96,7 +98,7 @@ function Login() {
                     fullWidth
                     id="userID"
                     value={userID}
-                    label="Student ID or Staff ID"
+                    label="Student ID or Staff ID or Admin ID"
                     name="userID"
                     autoFocus
                     onChange={(e) => {

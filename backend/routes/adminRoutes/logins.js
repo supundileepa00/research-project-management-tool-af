@@ -38,11 +38,24 @@ router.route("/login").get((req, res) => {
 
 //delete login member
 router.route("/delete/:id").delete(async (req, res) => {
-  let userID = req.params.id;
+  let id = req.params.id;
+
+  await Login.findByIdAndDelete(id)
+    .then(() => {
+      res.status(200).send({ status: "Login Deleted", id: id });
+    })
+    .catch((err) => {
+      res.status(500).send({ status: "Error while deleting record!!" });
+    });
+});
+
+//delete login member
+router.route("/deleteByUserID/:userID").delete(async (req, res) => {
+  let userID = req.params.userID;
 
   await Login.remove({ userID: userID })
     .then(() => {
-      res.status(200).send({ status: "Login Deleted" });
+      res.status(200).send({ status: "Login Deleted", userID: userID });
     })
     .catch((err) => {
       res.status(500).send({ status: "Error while deleting record!!" });

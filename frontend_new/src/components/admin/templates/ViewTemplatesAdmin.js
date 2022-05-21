@@ -69,6 +69,7 @@ function ViewTemplates() {
             Add Template/Document
           </Button>
         </Grid>
+
         {templates.map((template, key) => (
           <Card sx={{ maxWidth: 800, m: 5, p: 2 }} key={key} raised>
             <CardContent>
@@ -127,10 +128,7 @@ function ViewTemplates() {
                   window.open(template.templateDocument);
                 }}
               >
-                <img
-                  src={"../icons/adminIcons/" + template.type + ".png"}
-                  width="50"
-                ></img>
+                <img src={require("./icons/presentation.png")} width="50"></img>
                 Download
               </Button>
             </CardActions>

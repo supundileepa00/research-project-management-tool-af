@@ -47,7 +47,7 @@ router.route("/").get((req, res) => {
 router.route("/delete/:id").delete(async (req, res) => {
   let idNumber = req.params.id;
 
-  await Staff.remove({ idNumber: idNumber })
+  await Staff.findByIdAndDelete(idNumber)
     .then(() => {
       res.status(200).send({ status: "Student Deleted" });
     })
@@ -58,9 +58,9 @@ router.route("/delete/:id").delete(async (req, res) => {
 
 //get one staff member
 router.route("/get/:id").get(async (req, res) => {
-  let idNumber = req.params.id;
+  let id = req.params.id;
 
-  const staff = await Staff.find({ idNumber: idNumber })
+  const staff = await Staff.findById(id)
     .then((staff) => {
       res.status(200).send({ status: "Staff Member Details", staff });
     })

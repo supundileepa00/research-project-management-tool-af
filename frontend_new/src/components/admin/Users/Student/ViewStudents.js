@@ -14,6 +14,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import "../usersStye.css";
+import Swal from "sweetalert2";
 
 function ViewStudents() {
   const navigate = useNavigate();
@@ -24,14 +26,33 @@ function ViewStudents() {
     navigate("/registerStudent");
   };
 
-  // const deleteTemplate = (id) => {
-  //   setOpen(false);
-  //   axios
-  //     .delete("http://localhost:5000/rpmt/templates/delete/" + id)
-  //     .then(() => {
-  //       window.location.reload(false);
-  //     });
-  // };
+  const deleteStudent = async (id, idNumber) => {
+    await axios
+      .delete("http://localhost:5000/rpmt/students/delete/" + id)
+      .then((res) => {
+        console.log(res);
+      });
+
+    await axios
+      .delete("http://localhost:5000/rpmt/users/deleteByUserID/" + idNumber)
+      .then((res) => {
+        console.log(res);
+      });
+    loadStudent();
+  };
+
+  const loadStudent = () => {
+    axios
+      .get("http://localhost:5000/rpmt/students/")
+      .then((res) => {
+        setStudents(res.data);
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     function getStudents() {
       axios
@@ -85,12 +106,32 @@ function ViewStudents() {
                         {student.specialization}
                       </TableCell>
                       <TableCell align="left">
-                        <Button variant="contained" color="warning">
-                          Update
-                        </Button>
+                        <Link to={"update/" + student._id} className="edit">
+                          <Button variant="contained" color="warning">
+                            Update
+                          </Button>
+                        </Link>
                       </TableCell>
                       <TableCell align="left">
-                        <Button variant="contained" color="error">
+                        <Button
+                          variant="contained"
+                          color="error"
+                          onClick={() => {
+                            Swal.fire({
+                              title: "Warning!",
+                              text: "Do you want to delete the user?",
+                              icon: "warning",
+                              showCancelButton: true,
+                              confirmButtonText: "Ok",
+                              confirmButtonColor: "#C81E1E",
+                            }).then((result) => {
+                              if (result.isConfirmed) {
+                                deleteStudent(student._id, student.idNumber);
+                              } else {
+                              }
+                            });
+                          }}
+                        >
                           Delete
                         </Button>
                       </TableCell>
