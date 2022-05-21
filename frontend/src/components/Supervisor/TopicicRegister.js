@@ -9,6 +9,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import axios from "axios";
 import { useEffect, useState } from "react";
 
 //import { useEffect, useState } from "react";
@@ -47,6 +48,14 @@ function TopicRegister() {
       field,
       topic,
     };
+    axios
+      .post("http://localhost:5000/rpmt/topics/registerTopic, newTopic")
+      .then(() => {
+        alert("Topic Submitted");
+      })
+      .catch((err) => {
+        alert(err);
+      });
   }
 
   return (
