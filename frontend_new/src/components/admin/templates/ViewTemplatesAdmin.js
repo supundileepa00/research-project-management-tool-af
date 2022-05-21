@@ -128,9 +128,7 @@ function ViewTemplates() {
                   window.open(template.templateDocument);
                 }}
               >
-                {/* <img src={"./" + template.type + ".png"} width="50"></img> */}
-                <img src={require("./icons/default.png")} width="50"></img>
-                {/* <img src={require("./pdf.png")}></img> */}
+                <img src={require("./icons/presentation.png")} width="50"></img>
                 Download
               </Button>
             </CardActions>

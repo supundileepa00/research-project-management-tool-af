@@ -5,6 +5,7 @@ import { useEffect, useState } from "react";
 import Loader from "../../loader/Loader";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 
 function RegisterStudent() {
   const [loading, setLoading] = useState(false);
@@ -68,7 +69,7 @@ function RegisterStudent() {
           alert(err);
         });
 
-      alert("Registration Succesfull");
+      Swal.fire("Registration Succesfull!", "Click ok to Continue", "success");
 
       navigate("/");
 
@@ -78,7 +79,12 @@ function RegisterStudent() {
       setSpecialization("");
       setPassword("");
     } else {
-      alert("Passowrds Not Matched!!");
+      Swal.fire({
+        title: "Passowrds Not Matched!!",
+        text: "Please enter your password again.",
+        icon: "error",
+        confirmButtonText: "OK",
+      });
     }
   };
 

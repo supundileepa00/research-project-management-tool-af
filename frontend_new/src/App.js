@@ -14,6 +14,9 @@ import Login from "./components/Login";
 import SupervisorHome from "./components/SupervisorHome";
 import StudentHome from "./components/StudentHome";
 import Footer from "./components/footer/Footer";
+import UpdateStaff from "./components/admin/Users/Staff/UpdateStaff";
+import UpdateStudent from "./components/admin/Users/Student/UpdateStudent";
+import AddAdmin from "./components/admin/AddAdmin";
 
 export function App() {
   return (
@@ -43,9 +46,18 @@ export function App() {
           <Route path="/registerStudent" element={<RegisterStudent />}></Route>
           <Route path="/registerStaff" element={<RegisterStaff />}></Route>
           <Route path="/admin/students" element={<ViewStudents />}></Route>
+          <Route
+            path="admin/staff/update/:id"
+            element={<UpdateStaff />}
+          ></Route>
+          <Route
+            path="admin/students/update/:id"
+            element={<UpdateStudent />}
+          ></Route>
           <Route path="/admin/staff" element={<ViewStaff />}></Route>
           <Route path="/supervisor" element={<SupervisorHome />}></Route>
           <Route path="/student" element={<StudentHome />}></Route>
+          <Route path="/addAdmin" element={<AddAdmin />}></Route>
         </Routes>
       </BrowserRouter>
 

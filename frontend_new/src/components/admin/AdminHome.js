@@ -30,7 +30,7 @@ function AdminHome() {
           spacing={10}
           sx={{ mt: 3, p: 2 }}
         >
-          <Card sx={{ minWidth: 345, mr: 3, maxWidth: 345 }}>
+          <Card sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}>
             <CardActionArea
               onClick={() => {
                 navigate("/admin/students");
@@ -59,7 +59,7 @@ function AdminHome() {
             </CardActionArea>
           </Card>
           {/* staff */}
-          <Card sx={{ minWidth: 345, mr: 3, maxWidth: 345 }}>
+          <Card sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}>
             <CardActionArea
               onClick={() => {
                 navigate("/admin/staff");
@@ -90,7 +90,7 @@ function AdminHome() {
           </Card>
 
           {/* templates */}
-          <Card sx={{ minWidth: 345, mr: 3, maxWidth: 345 }}>
+          <Card sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}>
             <CardActionArea
               onClick={() => {
                 navigate("/admin/templates");
@@ -114,6 +114,38 @@ function AdminHome() {
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   Upload document/presentation templates
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+
+          {/* admin */}
+          <Card
+            sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270, mt: 3 }}
+          >
+            <CardActionArea
+              onClick={() => {
+                navigate("/addAdmin");
+              }}
+            >
+              <center>
+                <Avatar
+                  alt="Item Image"
+                  src={require("./images/admin.png")}
+                  sx={{ width: 150, height: 150 }}
+                />
+              </center>
+              <CardContent>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  style={{ fontWeight: 500, color: "#A3A3A3" }}
+                >
+                  Add Admin
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  Add another admin user
                 </Typography>
               </CardContent>
             </CardActionArea>

@@ -14,6 +14,8 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import "../usersStye.css";
+import Swal from "sweetalert2";
 
 function ViewStudents() {
   const navigate = useNavigate();
@@ -104,16 +106,30 @@ function ViewStudents() {
                         {student.specialization}
                       </TableCell>
                       <TableCell align="left">
-                        <Button variant="contained" color="warning">
-                          Update
-                        </Button>
+                        <Link to={"update/" + student._id} className="edit">
+                          <Button variant="contained" color="warning">
+                            Update
+                          </Button>
+                        </Link>
                       </TableCell>
                       <TableCell align="left">
                         <Button
                           variant="contained"
                           color="error"
                           onClick={() => {
-                            deleteStudent(student._id, student.idNumber);
+                            Swal.fire({
+                              title: "Warning!",
+                              text: "Do you want to delete the user?",
+                              icon: "warning",
+                              showCancelButton: true,
+                              confirmButtonText: "Ok",
+                              confirmButtonColor: "#C81E1E",
+                            }).then((result) => {
+                              if (result.isConfirmed) {
+                                deleteStudent(student._id, student.idNumber);
+                              } else {
+                              }
+                            });
                           }}
                         >
                           Delete

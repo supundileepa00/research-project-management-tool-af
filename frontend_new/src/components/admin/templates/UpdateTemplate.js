@@ -101,17 +101,6 @@ function UpdateTemplate() {
                 id="form"
               >
                 <Grid item md={6}>
-                  {/* <TextField
-                    id="outlined-basic"
-                    label="Type"
-                    variant="outlined"
-                    value={type}
-                    required
-                    fullWidth
-                    onChange={(e) => {
-                      setType(e.target.value);
-                    }}
-                  /> */}
                   <br />
                   <br />
                 </Grid>

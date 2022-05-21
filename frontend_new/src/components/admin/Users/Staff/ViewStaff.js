@@ -6,7 +6,7 @@ import Typography from "@mui/material/Typography";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { Container, Grid } from "@mui/material";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import Table from "@mui/material/Table";
 import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
@@ -14,6 +14,7 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
+import Swal from "sweetalert2";
 
 function ViewStaff() {
   const navigate = useNavigate();
@@ -108,16 +109,30 @@ function ViewStaff() {
 
                       <TableCell align="left">{staff.type}</TableCell>
                       <TableCell align="left">
-                        <Button variant="contained" color="warning">
-                          Update
-                        </Button>
+                        <Link to={"update/" + staff._id} className="edit">
+                          <Button variant="contained" color="warning">
+                            Update
+                          </Button>
+                        </Link>
                       </TableCell>
                       <TableCell align="left">
                         <Button
                           variant="contained"
                           color="error"
                           onClick={() => {
-                            deletestaff(staff._id, staff.idNumber);
+                            Swal.fire({
+                              title: "Warning!",
+                              text: "Do you want to delete the user?",
+                              icon: "warning",
+                              showCancelButton: true,
+                              confirmButtonText: "Ok",
+                              confirmButtonColor: "#C81E1E",
+                            }).then((result) => {
+                              if (result.isConfirmed) {
+                                deletestaff(staff._id, staff.idNumber);
+                              } else {
+                              }
+                            });
                           }}
                         >
                           Delete
