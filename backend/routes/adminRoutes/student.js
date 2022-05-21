@@ -70,7 +70,7 @@ router.route("/update/:id").put(async (req, res) => {
 router.route("/delete/:id").delete(async (req, res) => {
   let studentID = req.params.id;
 
-  await Student.remove({ idNumber: studentID })
+  await Student.findByIdAndDelete(studentID)
     .then(() => {
       res.status(200).send({ status: "Student Deleted" });
     })
@@ -85,7 +85,7 @@ router.route("/delete/:id").delete(async (req, res) => {
 router.route("/get/:id").get(async (req, res) => {
   let studentId = req.params.id;
 
-  const user = await Student.find({ idNumber: studentId })
+  const user = await Student.findById(studentId)
     .then((student) => {
       res.status(200).send({ status: "Student Details", student });
     })

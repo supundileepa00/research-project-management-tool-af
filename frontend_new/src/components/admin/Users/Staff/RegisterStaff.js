@@ -99,7 +99,7 @@ function RegisterStaff() {
 
       setSetName("");
       setID("");
-      faculty("");
+      setFaculty("");
       setDepartment("");
       setPassword("");
       setType("");

@@ -24,14 +24,33 @@ function ViewStudents() {
     navigate("/registerStudent");
   };
 
-  // const deleteTemplate = (id) => {
-  //   setOpen(false);
-  //   axios
-  //     .delete("http://localhost:5000/rpmt/templates/delete/" + id)
-  //     .then(() => {
-  //       window.location.reload(false);
-  //     });
-  // };
+  const deleteStudent = async (id, idNumber) => {
+    await axios
+      .delete("http://localhost:5000/rpmt/students/delete/" + id)
+      .then((res) => {
+        console.log(res);
+      });
+
+    await axios
+      .delete("http://localhost:5000/rpmt/users/deleteByUserID/" + idNumber)
+      .then((res) => {
+        console.log(res);
+      });
+    loadStudent();
+  };
+
+  const loadStudent = () => {
+    axios
+      .get("http://localhost:5000/rpmt/students/")
+      .then((res) => {
+        setStudents(res.data);
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  };
+
   useEffect(() => {
     function getStudents() {
       axios
@@ -90,7 +109,13 @@ function ViewStudents() {
                         </Button>
                       </TableCell>
                       <TableCell align="left">
-                        <Button variant="contained" color="error">
+                        <Button
+                          variant="contained"
+                          color="error"
+                          onClick={() => {
+                            deleteStudent(student._id, student.idNumber);
+                          }}
+                        >
                           Delete
                         </Button>
                       </TableCell>
