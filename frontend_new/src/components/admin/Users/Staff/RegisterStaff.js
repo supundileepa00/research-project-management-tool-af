@@ -11,6 +11,7 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import ResponsiveAppBarRegister from "../../../appBar/ResponsiveAppBarRegister";
 
 function RegisterStaff() {
   const [loading, setLoading] = useState(false);
@@ -117,8 +118,8 @@ function RegisterStaff() {
 
   return (
     <div>
-      {/* <ResponsiveAppBar /> */}
-      <Container>
+      <ResponsiveAppBarRegister />
+      <Container sx={{ mt: 15 }}>
         <Paper elevation={7}>
           <Box sx={{ m: 4 }}>
             <br></br>
@@ -197,10 +198,12 @@ function RegisterStaff() {
                     onChange={handleDepartment}
                     required
                   >
-                    <MenuItem value={"Dept1"}>
+                    <MenuItem
+                      value={"Computer Science and Software Engineering"}
+                    >
                       Computer Science and Software Engineering
                     </MenuItem>
-                    <MenuItem value={"Data Science<"}>Data Science</MenuItem>
+                    <MenuItem value={"Data Science"}>Data Science</MenuItem>
                     <MenuItem value={"Interactive Media"}>
                       Interactive Media
                     </MenuItem>

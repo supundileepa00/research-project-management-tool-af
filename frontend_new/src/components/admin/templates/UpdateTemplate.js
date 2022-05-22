@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import Loader from "../loader/Loader";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
+import ResponsiveAdminUpdateTemplate from "../../appBar/ResponsiveAdminUpdateTemplate";
 
 function UpdateTemplate() {
   const paramID = useParams("");
@@ -88,7 +89,8 @@ function UpdateTemplate() {
 
   return (
     <div>
-      <Container>
+      <ResponsiveAdminUpdateTemplate />
+      <Container sx={{ mt: 15 }}>
         <Paper elevation={7}>
           <Box sx={{ m: 5 }}>
             <br></br>

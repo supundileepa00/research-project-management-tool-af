@@ -6,6 +6,7 @@ import Loader from "../../loader/Loader";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import ResponsiveAppBarRegister from "../../../appBar/ResponsiveAppBarRegister";
 
 function RegisterStudent() {
   const [loading, setLoading] = useState(false);
@@ -90,8 +91,8 @@ function RegisterStudent() {
 
   return (
     <div>
-      {/* <ResponsiveAppBar /> */}
-      <Container>
+      <ResponsiveAppBarRegister />
+      <Container sx={{ mt: 15 }}>
         <Paper elevation={7}>
           <Box sx={{ m: 4 }}>
             <br></br>

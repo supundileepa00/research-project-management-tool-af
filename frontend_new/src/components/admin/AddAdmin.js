@@ -6,6 +6,7 @@ import Loader from "./loader/Loader";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import ResponsiveAdminHome from "../appBar/ResponsiveAdminHome";
 function AddAdmin() {
   const [loading, setLoading] = useState(false);
 
@@ -45,7 +46,7 @@ function AddAdmin() {
           alert(err);
         });
 
-      alert("Registration Succesfull");
+      Swal.fire("Admin User Added!!", "Click ok to Continue", "success");
 
       navigate("/admin-home");
 
@@ -58,13 +59,15 @@ function AddAdmin() {
         icon: "error",
         confirmButtonText: "OK",
       });
+
+      setConfirmPassword("");
     }
   };
 
   return (
     <div>
-      {/* <ResponsiveAppBar /> */}
-      <Container>
+      <ResponsiveAdminHome />
+      <Container sx={{ mt: 15 }}>
         <Paper elevation={7}>
           <Box sx={{ m: 4 }}>
             <br></br>

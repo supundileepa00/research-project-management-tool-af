@@ -4,7 +4,6 @@ import AdminHome from "./components/admin/AdminHome";
 import AddTemplate from "./components/admin/templates/AddTemplate";
 import ViewTemplates from "./components/admin/templates/ViewTemplates";
 import ViewTemplateAdmin from "./components/admin/templates/ViewTemplatesAdmin";
-import ResponsiveAppBar from "./components/admin/ResponsiveAppBar";
 import UpdateTemplate from "./components/admin/templates/UpdateTemplate";
 import RegisterStudent from "./components/admin/Users/Student/RegisterStudent";
 import ViewStudents from "./components/admin/Users/Student/ViewStudents";
@@ -17,14 +16,13 @@ import Footer from "./components/footer/Footer";
 import UpdateStaff from "./components/admin/Users/Staff/UpdateStaff";
 import UpdateStudent from "./components/admin/Users/Student/UpdateStudent";
 import AddAdmin from "./components/admin/AddAdmin";
+import PanelMemberHome from "./components/PanelMemberHome";
 
 export function App() {
   return (
     <div>
       <style>{"body { background-color: #f1f3f0; }"}</style>
       <BrowserRouter>
-        <ResponsiveAppBar />
-
         {/* routes */}
         <Routes>
           <Route path="/" element={<Login />}></Route>
@@ -58,6 +56,7 @@ export function App() {
           <Route path="/supervisor" element={<SupervisorHome />}></Route>
           <Route path="/student" element={<StudentHome />}></Route>
           <Route path="/addAdmin" element={<AddAdmin />}></Route>
+          <Route path="/panelMember" element={<PanelMemberHome />}></Route>
         </Routes>
       </BrowserRouter>
 

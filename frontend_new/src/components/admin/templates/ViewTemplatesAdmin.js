@@ -15,6 +15,7 @@ import DialogActions from "@mui/material/DialogActions";
 import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
+import ResponsiveAdminHome from "../../appBar/ResponsiveAdminHome";
 
 function ViewTemplates() {
   const navigate = useNavigate();
@@ -60,7 +61,8 @@ function ViewTemplates() {
   }, []);
   return (
     <div>
-      <Container sx={{ mt: 5, p: 2 }}>
+      <ResponsiveAdminHome />
+      <Container sx={{ mt: 15, p: 2 }}>
         <Typography variant="h4" component="div" gutterBottom>
           Templates and Documents for Researches - Admin
         </Typography>

@@ -6,6 +6,7 @@ import Loader from "../../loader/Loader";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import ResponsiveAdminSubStd from "../../../appBar/ResponsiveAdminSubStd";
 
 function UpdateStudent() {
   const [loading, setLoading] = useState(false);
@@ -51,8 +52,6 @@ function UpdateStudent() {
         alert(err);
       });
 
-    alert("Student Updated Succesfull");
-
     navigate("/admin/students");
 
     setStudentName("");
@@ -80,7 +79,7 @@ function UpdateStudent() {
 
   return (
     <div>
-      {/* <ResponsiveAppBar /> */}
+      <ResponsiveAdminSubStd />
       <Container>
         <Paper elevation={7}>
           <Box sx={{ m: 4 }}>
