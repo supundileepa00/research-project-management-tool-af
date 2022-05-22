@@ -15,11 +15,13 @@ import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Swal from "sweetalert2";
+import ResponsiveAdminHome from "../../../appBar/ResponsiveAdminHome";
 
 function ViewStaff() {
   const navigate = useNavigate();
 
   const [staff, setStaff] = useState([]);
+  const [noData, setNodata] = useState(false);
 
   const register = () => {
     navigate("/registerStaff");
@@ -46,6 +48,9 @@ function ViewStaff() {
       .then((res) => {
         setStaff(res.data);
         console.log(res);
+        if (res.data.length == 0) {
+          setNodata(true);
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -58,6 +63,9 @@ function ViewStaff() {
         .then((res) => {
           setStaff(res.data);
           console.log(res);
+          if (res.data.length == 0) {
+            setNodata(true);
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -67,7 +75,8 @@ function ViewStaff() {
   }, []);
   return (
     <div>
-      <Container sx={{ mt: 5, p: 2 }}>
+      <ResponsiveAdminHome />
+      <Container sx={{ mt: 15, p: 2 }}>
         <Typography variant="h4" component="div" gutterBottom>
           Registered Staff Members Details
         </Typography>
@@ -143,6 +152,7 @@ function ViewStaff() {
                 </TableBody>
               </Table>
             </TableContainer>
+            <center>{noData ? <p>No Data </p> : null}</center>
           </CardContent>
         </Card>
       </Container>

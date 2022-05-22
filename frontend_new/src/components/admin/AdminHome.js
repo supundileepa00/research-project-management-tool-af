@@ -7,6 +7,7 @@ import { CardActionArea, CardActions } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import Typography from "@mui/material/Typography";
 import CardMedia from "@mui/material/CardMedia";
+import ResponsiveAdminHome from "../appBar/ResponsiveAdminHome";
 
 function AdminHome() {
   const navigate = useNavigate();
@@ -19,6 +20,7 @@ function AdminHome() {
   };
   return (
     <div>
+      <ResponsiveAdminHome />
       <Container>
         <h1>Admin Home</h1>
 
@@ -30,7 +32,10 @@ function AdminHome() {
           spacing={10}
           sx={{ mt: 3, p: 2 }}
         >
-          <Card sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}>
+          <Card
+            sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}
+            raised
+          >
             <CardActionArea
               onClick={() => {
                 navigate("/admin/students");
@@ -59,7 +64,10 @@ function AdminHome() {
             </CardActionArea>
           </Card>
           {/* staff */}
-          <Card sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}>
+          <Card
+            sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}
+            raised
+          >
             <CardActionArea
               onClick={() => {
                 navigate("/admin/staff");
@@ -90,7 +98,10 @@ function AdminHome() {
           </Card>
 
           {/* templates */}
-          <Card sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}>
+          <Card
+            sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}
+            raised
+          >
             <CardActionArea
               onClick={() => {
                 navigate("/admin/templates");
@@ -122,6 +133,7 @@ function AdminHome() {
           {/* admin */}
           <Card
             sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270, mt: 3 }}
+            raised
           >
             <CardActionArea
               onClick={() => {

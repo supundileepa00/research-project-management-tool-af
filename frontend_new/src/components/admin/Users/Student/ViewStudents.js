@@ -16,11 +16,13 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import "../usersStye.css";
 import Swal from "sweetalert2";
+import ResponsiveAdminHome from "../../../appBar/ResponsiveAdminHome";
 
 function ViewStudents() {
   const navigate = useNavigate();
 
   const [students, setStudents] = useState([]);
+  const [noData, setNodata] = useState(false);
 
   const register = () => {
     navigate("/registerStudent");
@@ -47,6 +49,9 @@ function ViewStudents() {
       .then((res) => {
         setStudents(res.data);
         console.log(res);
+        if (res.data.length == 0) {
+          setNodata(true);
+        }
       })
       .catch((err) => {
         console.log(err);
@@ -60,6 +65,9 @@ function ViewStudents() {
         .then((res) => {
           setStudents(res.data);
           console.log(res);
+          if (res.data.length == 0) {
+            setNodata(true);
+          }
         })
         .catch((err) => {
           console.log(err);
@@ -69,7 +77,8 @@ function ViewStudents() {
   }, []);
   return (
     <div>
-      <Container sx={{ mt: 5, p: 2 }}>
+      <ResponsiveAdminHome />
+      <Container sx={{ mt: 15, p: 2 }}>
         <Typography variant="h4" component="div" gutterBottom>
           Registered Student Details
         </Typography>
@@ -139,6 +148,7 @@ function ViewStudents() {
                   ))}
                 </TableBody>
               </Table>
+              <center>{noData ? <p>No Data </p> : null}</center>
             </TableContainer>
           </CardContent>
         </Card>

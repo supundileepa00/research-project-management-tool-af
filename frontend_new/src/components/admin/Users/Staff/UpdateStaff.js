@@ -11,6 +11,7 @@ import FormControl from "@mui/material/FormControl";
 import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
+import ResponsiveAdminSubStaff from "../../../appBar/ResponsiveAdminSubStaff";
 
 function UpdateStaff() {
   const [loading, setLoading] = useState(false);
@@ -75,8 +76,6 @@ function UpdateStaff() {
         alert(err);
       });
 
-    alert("Student Updated");
-
     setName("");
     setID("");
     setFaculty("");
@@ -107,8 +106,8 @@ function UpdateStaff() {
 
   return (
     <div>
-      {/* <ResponsiveAppBar /> */}
-      <Container>
+      <ResponsiveAdminSubStaff />
+      <Container sx={{ mt: 15 }}>
         <Paper elevation={7}>
           <Box sx={{ m: 4 }}>
             <br></br>
@@ -187,33 +186,31 @@ function UpdateStaff() {
                     onChange={handleDepartment}
                     required
                   >
-                    <MenuItem value={"Dept1"}>Dept1</MenuItem>
-                    <MenuItem value={"Dept2"}>Dept2</MenuItem>
-                    <MenuItem value={"Dept3"}>Dept3</MenuItem>
-                    <MenuItem value={"Dept4"}>Dept4</MenuItem>
+                    <MenuItem
+                      value={"Computer Science and Software Engineering"}
+                    >
+                      Computer Science and Software Engineering
+                    </MenuItem>
+                    <MenuItem value={"Data Science"}>Data Science</MenuItem>
+                    <MenuItem value={"Interactive Media"}>
+                      Interactive Media
+                    </MenuItem>
+                    <MenuItem value={"Information Technology"}>
+                      Information Technology
+                    </MenuItem>
+                    <MenuItem value={"Civil Engineeringy"}>
+                      Civil Engineeringy
+                    </MenuItem>
+                    <MenuItem value={"Electrical & Electronic Engineeringy"}>
+                      Electrical & Electronic Engineeringy
+                    </MenuItem>
+                    <MenuItem value={"Buisness"}>Buisness</MenuItem>
+                    <MenuItem value={"Other"}>Other</MenuItem>
                   </Select>
                 </FormControl>
                 <br />
                 <br />
-                <FormControl sx={{ width: 300, minWidth: 180 }}>
-                  <InputLabel id="demo-simple-select-helper-label">
-                    Select User Type
-                  </InputLabel>
-                  <Select
-                    labelId="demo-simple-select-helper-label"
-                    id="demo-simple-select-helper"
-                    value={type}
-                    label="Age"
-                    onChange={handleChangeUserType}
-                    required
-                    defaultValue={"supervisor"}
-                  >
-                    <MenuItem value={"supervisor"}>Supervisor</MenuItem>
-                    <MenuItem value={"panel_member"}>Panel Member</MenuItem>
-                  </Select>
-                </FormControl>
-                <br />
-                <br />
+
                 <TextField
                   variant="outlined"
                   label="Research Interest"
