@@ -23,12 +23,12 @@ mongoose.connect(URL, {
 //database connection
 const connection = mongoose.connection;
 connection.once("open", () => {
-  console.log("Mongodb Connection Success!!");
+  // console.log("Mongodb Connection Success!!");
 });
 
 //load/run app on the port
 app.listen(PORT, () => {
-  console.log("Server is up and running on ", PORT);
+  // console.log("Server is up and running on ", PORT);
 });
 
 //---------------------admin----------------------
@@ -44,3 +44,5 @@ app.use("/rpmt/templates", templateRouter);
 
 const LoginRouter = require("./routes/adminRoutes/logins");
 app.use("/rpmt/users", LoginRouter);
+
+module.exports = app;

@@ -59,6 +59,7 @@ router.route("/").get((req, res) => {
   Template.find()
     .then((template) => {
       res.json(template);
+      res.status(200);
     })
     .catch((err) => {
       console.log(err);

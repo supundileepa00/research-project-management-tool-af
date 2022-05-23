@@ -33,7 +33,7 @@ function AdminHome() {
           sx={{ mt: 3, p: 2 }}
         >
           <Card
-            sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}
+            sx={{ minWidth: 345, m: 3, maxWidth: 345, minHeight: 270 }}
             raised
           >
             <CardActionArea
@@ -65,7 +65,7 @@ function AdminHome() {
           </Card>
           {/* staff */}
           <Card
-            sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}
+            sx={{ minWidth: 345, m: 3, maxWidth: 345, minHeight: 270 }}
             raised
           >
             <CardActionArea
@@ -99,7 +99,7 @@ function AdminHome() {
 
           {/* templates */}
           <Card
-            sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}
+            sx={{ minWidth: 345, m: 3, maxWidth: 345, minHeight: 270 }}
             raised
           >
             <CardActionArea
@@ -132,7 +132,7 @@ function AdminHome() {
 
           {/* admin */}
           <Card
-            sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270, mt: 3 }}
+            sx={{ minWidth: 345, m: 3, maxWidth: 345, minHeight: 270 }}
             raised
           >
             <CardActionArea
