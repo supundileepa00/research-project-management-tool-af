@@ -4,24 +4,28 @@ const Schema = mongoose.Schema;
 
 const ResearchSchema = new Schema({
   name: {
-    String,
+    type: String,
     require: true,
   },
   topic: {
-    String,
+    type: String,
     require: true,
   },
   groupID: {
-    String,
+    type: String,
     require: true,
   },
   faculty: {
-    String,
+    type: String,
     require: true,
   },
   document: {
-    data: buffer,
-    contentType: String,
+    type: String,
+    required: true,
+  },
+  cloudinaryID: {
+    type: String,
+    required: true,
   },
 });
 
