@@ -46,7 +46,6 @@ function TopicRegister() {
       faculty,
       department,
       field,
-      topic,
     };
     axios
       .post("http://localhost:5000/rpmt/topics/registerTopic, newTopic")
