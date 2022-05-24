@@ -9,6 +9,8 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
 //import { useEffect, useState } from "react";
 
@@ -20,11 +22,40 @@ function TopicRegister() {
  // const [department, setDepartment] = React.useState("");
  // const [topic, setTopic] = React.useState("");
 
-  const [age, setAge] = React.useState("");
-
-  const handleChange = (event) => {
-    setAge(event.target.value);
+  const handleFaculty = (event) => {
+    setFaculty(event.target.value);
   };
+
+  const handleDepartment = (event) => {
+    setDepartment(event.target.value);
+  };
+
+  const handleField = (event) => {
+    setField(event.target.value);
+  };
+
+  function sendData(e) {
+    e.preventDefault();
+    alert("Insert");
+
+    const newTopic = {
+      name,
+      regNo,
+      groupID,
+      faculty,
+      department,
+      field,
+      topic,
+    };
+    axios
+      .post("http://localhost:5000/rpmt/topics/registerTopic, newTopic")
+      .then(() => {
+        alert("Topic Submitted");
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }
 
   return (
     <div>
@@ -75,57 +106,12 @@ function TopicRegister() {
          
         </Box>
 
-        <Box
-          component="form"
-          sx={{
-            "& > :not(style)": { m: 2, width: "52ch" },
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <FormControl fullWidth>
-            <InputLabel id="demo-simple-select-label">
-              Research Field
-            </InputLabel>
-            <Select
-              labelId="demo-simple-select-label"
-              id="demo-simple-select"
-              value={age}
-              label="Age"
-              onChange={handleChange}
-            >
-              <MenuItem value={10}>Ten</MenuItem>
-              <MenuItem value={20}>Twenty</MenuItem>
-              <MenuItem value={30}>Thirty</MenuItem>
-            </Select>
-          </FormControl>
-        </Box>
-
-        <Box
-          component="form"
-          sx={{
-            "& > :not(style)": { m: 1, width: "52ch" },
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <TextField id="topic" label="Topic" variant="outlined" />
-        </Box>
-
-        <Box
-          component="form"
-          sx={{
-            "& > :not(style)": { m: 1, width: "20ch" },
-          }}
-          noValidate
-          autoComplete="off"
-        >
-          <Stack spacing={2} direction="column">
-            <Button variant="contained">Submit</Button>
-          </Stack>
-        </Box>
-      </div>
+        <center>
+          <Button variant="contained">Submit</Button>
+        </center>
+      </form>
     </div>
   );
 }
+
 export default TopicRegister;
