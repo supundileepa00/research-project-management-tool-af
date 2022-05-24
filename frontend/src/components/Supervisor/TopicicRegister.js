@@ -12,15 +12,15 @@ import Grid from "@mui/material/Grid";
 import axios from "axios";
 import { useEffect, useState } from "react";
 
-//import { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 function TopicRegister() {
- //const [name, setName] = React.useState("");
- // const [registerId, setRegisterId] = React.useState("");
- // const [groupId, setGroupId] = React.useState("");
- // const [faculty, setFaculty] = React.useState("");
- // const [department, setDepartment] = React.useState("");
- // const [topic, setTopic] = React.useState("");
+const [name, setName] = React.useState("");
+ const [registerId, setRegisterId] = React.useState("");
+ const [groupId, setGroupId] = React.useState("");
+ const [faculty, setFaculty] = React.useState("");
+ const [department, setDepartment] = React.useState("");
+ const [topic, setTopic] = React.useState("");
 
   const handleFaculty = (event) => {
     setFaculty(event.target.value);
