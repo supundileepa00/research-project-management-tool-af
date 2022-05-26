@@ -11,7 +11,7 @@ import ViewStaff from "./components/admin/Users/Staff/ViewStaff";
 import RegisterStaff from "./components/admin/Users/Staff/RegisterStaff";
 import Login from "./components/Login";
 import SupervisorHome from "./components/SupervisorHome";
-import StudentHome from "./components/StudentHome";
+import StudentHome from "./components/student/StudentHome";
 import Footer from "./components/footer/Footer";
 import UpdateStaff from "./components/admin/Users/Staff/UpdateStaff";
 import UpdateStudent from "./components/admin/Users/Student/UpdateStudent";
