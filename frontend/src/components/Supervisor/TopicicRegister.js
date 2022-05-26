@@ -11,6 +11,7 @@ import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
 import axios from "axios";
 import { useEffect, useState } from "react";
+//import TopicView from /components/Supervisor/TopicView';
 
 function TopicRegister() {
   const [name, setName] = useState("");
@@ -35,7 +36,7 @@ function TopicRegister() {
     setField(event.target.value);
   };
 
-  function sendData(e) {
+  function submitButton(e) {
     e.preventDefault();
     alert("Insert");
 
@@ -108,9 +109,9 @@ function TopicRegister() {
                 label="Faculty"
                 onChange={handleFaculty}
               >
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
+                <MenuItem value={"Faculty Of Computing"}>Faculty Of Computing</MenuItem>
+                <MenuItem value={"Faculty Of Business"}>Faculty Of Business</MenuItem>
+                <MenuItem value={"Faculty Of Engineering"}>Faculty Of Engineering</MenuItem>
               </Select>
             </FormControl>
 
@@ -123,9 +124,11 @@ function TopicRegister() {
                 label="Department"
                 onChange={handleDepartment}
               >
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
+                <MenuItem value={"Information Technology (SLIIT)- SE/ IT / ISE / CS / CSNE"}>Information Technology (SLIIT)- SE/ IT / ISE / CS / CSNE</MenuItem>
+                <MenuItem value={"Business MAnagement (SLIIT)"}>Business MAnagement (SLIIT)</MenuItem>
+                <MenuItem value={"Business Management (LJMU)"}>Business Management (LJMU)</MenuItem>
+                <MenuItem value={"Engineering (SLIIT)"}>Engineering (SLIIT)</MenuItem>
+
               </Select>
             </FormControl>
           </Box>
@@ -147,9 +150,12 @@ function TopicRegister() {
                 label="Field"
                 onChange={handleField}
               >
-                <MenuItem value={10}>Ten</MenuItem>
-                <MenuItem value={20}>Twenty</MenuItem>
-                <MenuItem value={30}>Thirty</MenuItem>
+                <MenuItem value={"Front-End Develop"}>Front-End Develop</MenuItem>
+                <MenuItem value={"Back-End Develop"}>Back-End Develop</MenuItem>
+                <MenuItem value={"Full-Stack Develop"}>Full-Stack Develop</MenuItem>
+                <MenuItem value={"Mechanical Engineering"}>Mechanical Engineering</MenuItem>
+                <MenuItem value={"Business Achievements"}>Business Achievements</MenuItem>
+                <MenuItem value={"Entrepreneur"}>Entrepreneur</MenuItem>
               </Select>
             </FormControl>
           </Box>
