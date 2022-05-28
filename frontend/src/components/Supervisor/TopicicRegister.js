@@ -15,17 +15,18 @@ import { useEffect, useState } from "react";
 
 function TopicRegister() {
   const [name, setName] = useState("");
-  const [regNo, setRegNo] = useState("");
+  const [studentId, setstudentId] = useState("");
   //const [registerId, setRegisterId] = useState("");
-  const [groupID, setGroupID] = useState("");
+  const [groupId, setGroupID] = useState("");
 
   const [faculty, setFaculty] = React.useState("");
   const [department, setDepartment] = React.useState("");
-  const [field, setField] = React.useState("");
+  const [researchField, setField] = React.useState("");
   const [topic, setTopic] = useState("");
 
   const handleFaculty = (event) => {
     setFaculty(event.target.value);
+    console.log(faculty);
   };
 
   const handleDepartment = (event) => {
@@ -38,23 +39,25 @@ function TopicRegister() {
 
   function submitButton(e) {
     e.preventDefault();
-    alert("Insert");
-
+    console.log("start function");
     const newTopic = {
       name,
-      regNo,
-      groupID,
+      studentId,
+      groupId,
       faculty,
       department,
-      field,
+      researchField,
+      topic,
     };
+    console.log(newTopic);
     axios
-      .post("http://localhost:5000/rpmt/topics/registerTopic, newTopic")
-      .then(() => {
+      .post("http://localhost:5000/rpmt/topics/registerTopic", newTopic)
+      .then((res) => {
         alert("Topic Submitted");
+        console.log(res);
       })
       .catch((err) => {
-        alert(err);
+        console.log(err);
       });
   }
 
@@ -63,7 +66,7 @@ function TopicRegister() {
       <h1>Topic Register</h1>
 
       <div className="App">
-        <form>
+        <form onSubmit={submitButton}>
           <Box
             component="form"
             sx={{
@@ -72,7 +75,14 @@ function TopicRegister() {
             noValidate
             autoComplete="off"
           >
-            <TextField id="name" label="Name" variant="outlined" />
+            <TextField
+              id="name"
+              label="Name"
+              variant="outlined"
+              onChange={(e) => {
+                setName(e.target.value);
+              }}
+            />
           </Box>
 
           <Box
@@ -87,9 +97,19 @@ function TopicRegister() {
               id="registerNumber"
               label="Register Number"
               variant="outlined"
+              onChange={(e) => {
+                setstudentId(e.target.value);
+              }}
             />
 
-            <TextField id="groupId" label="Group Id" variant="outlined" />
+            <TextField
+              id="groupId"
+              label="Group Id"
+              variant="outlined"
+              onChange={(e) => {
+                setGroupID(e.target.value);
+              }}
+            />
           </Box>
 
           <Box
@@ -109,9 +129,15 @@ function TopicRegister() {
                 label="Faculty"
                 onChange={handleFaculty}
               >
-                <MenuItem value={"Faculty Of Computing"}>Faculty Of Computing</MenuItem>
-                <MenuItem value={"Faculty Of Business"}>Faculty Of Business</MenuItem>
-                <MenuItem value={"Faculty Of Engineering"}>Faculty Of Engineering</MenuItem>
+                <MenuItem value={"Faculty Of Computing"}>
+                  Faculty Of Computing
+                </MenuItem>
+                <MenuItem value={"Faculty Of Business"}>
+                  Faculty Of Business
+                </MenuItem>
+                <MenuItem value={"Faculty Of Engineering"}>
+                  Faculty Of Engineering
+                </MenuItem>
               </Select>
             </FormControl>
 
@@ -124,11 +150,22 @@ function TopicRegister() {
                 label="Department"
                 onChange={handleDepartment}
               >
-                <MenuItem value={"Information Technology (SLIIT)- SE/ IT / ISE / CS / CSNE"}>Information Technology (SLIIT)- SE/ IT / ISE / CS / CSNE</MenuItem>
-                <MenuItem value={"Business MAnagement (SLIIT)"}>Business MAnagement (SLIIT)</MenuItem>
-                <MenuItem value={"Business Management (LJMU)"}>Business Management (LJMU)</MenuItem>
-                <MenuItem value={"Engineering (SLIIT)"}>Engineering (SLIIT)</MenuItem>
-
+                <MenuItem
+                  value={
+                    "Information Technology (SLIIT)- SE/ IT / ISE / CS / CSNE"
+                  }
+                >
+                  Information Technology (SLIIT)- SE/ IT / ISE / CS / CSNE
+                </MenuItem>
+                <MenuItem value={"Business MAnagement (SLIIT)"}>
+                  Business MAnagement (SLIIT)
+                </MenuItem>
+                <MenuItem value={"Business Management (LJMU)"}>
+                  Business Management (LJMU)
+                </MenuItem>
+                <MenuItem value={"Engineering (SLIIT)"}>
+                  Engineering (SLIIT)
+                </MenuItem>
               </Select>
             </FormControl>
           </Box>
@@ -146,15 +183,23 @@ function TopicRegister() {
               <Select
                 labelId="field-select-label"
                 id="field-select"
-                value={field}
+                value={researchField}
                 label="Field"
                 onChange={handleField}
               >
-                <MenuItem value={"Front-End Develop"}>Front-End Develop</MenuItem>
+                <MenuItem value={"Front-End Develop"}>
+                  Front-End Develop
+                </MenuItem>
                 <MenuItem value={"Back-End Develop"}>Back-End Develop</MenuItem>
-                <MenuItem value={"Full-Stack Develop"}>Full-Stack Develop</MenuItem>
-                <MenuItem value={"Mechanical Engineering"}>Mechanical Engineering</MenuItem>
-                <MenuItem value={"Business Achievements"}>Business Achievements</MenuItem>
+                <MenuItem value={"Full-Stack Develop"}>
+                  Full-Stack Develop
+                </MenuItem>
+                <MenuItem value={"Mechanical Engineering"}>
+                  Mechanical Engineering
+                </MenuItem>
+                <MenuItem value={"Business Achievements"}>
+                  Business Achievements
+                </MenuItem>
                 <MenuItem value={"Entrepreneur"}>Entrepreneur</MenuItem>
               </Select>
             </FormControl>
@@ -168,10 +213,19 @@ function TopicRegister() {
             noValidate
             autoComplete="off"
           >
-            <TextField id="topic" label="Topic" variant="outlined" />
+            <TextField
+              id="topic"
+              label="Topic"
+              variant="outlined"
+              onChange={(e) => {
+                setTopic(e.target.value);
+              }}
+            />
           </Box>
           <center>
-            <Button variant="contained">Submit</Button>
+            <Button variant="contained" type="submit">
+              Submit
+            </Button>
           </center>
         </form>
       </div>
