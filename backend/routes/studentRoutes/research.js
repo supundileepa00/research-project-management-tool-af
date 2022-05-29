@@ -6,7 +6,7 @@ const upload = require("../../utils/multer");
 let Research = require("./../../models/studentModels/Research.js");
 
 // add research details
-router.route("/addResearch").post(upload.single("document"), (req, res) => {
+router.route("/add").post(upload.single("document"), (req, res) => {
   const result = cloudinary.uploader.upload(req.file.path, {
     resource_type: "auto",
     folder: "rpmt/research/student",

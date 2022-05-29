@@ -17,6 +17,7 @@ import UpdateStaff from "./components/admin/Users/Staff/UpdateStaff";
 import UpdateStudent from "./components/admin/Users/Student/UpdateStudent";
 import AddAdmin from "./components/admin/AddAdmin";
 import PanelMemberHome from "./components/PanelMemberHome";
+import AddResearch from "./components/student/AddResearch";
 
 export function App() {
   return (
@@ -57,6 +58,8 @@ export function App() {
           <Route path="/student" element={<StudentHome />}></Route>
           <Route path="/addAdmin" element={<AddAdmin />}></Route>
           <Route path="/panelMember" element={<PanelMemberHome />}></Route>
+
+          <Route path="/addResearch" element={<AddResearch />}></Route>
         </Routes>
       </BrowserRouter>
 
