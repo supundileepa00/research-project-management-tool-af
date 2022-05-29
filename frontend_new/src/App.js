@@ -17,6 +17,8 @@ import UpdateStaff from "./components/admin/Users/Staff/UpdateStaff";
 import UpdateStudent from "./components/admin/Users/Student/UpdateStudent";
 import AddAdmin from "./components/admin/AddAdmin";
 import PanelMemberHome from "./components/PanelMemberHome";
+import TopicRegister from "./components/Supervisor/TopicicRegister";
+import TopicView from "./components/Supervisor/TopicView";
 
 export function App() {
   return (
@@ -57,6 +59,9 @@ export function App() {
           <Route path="/student" element={<StudentHome />}></Route>
           <Route path="/addAdmin" element={<AddAdmin />}></Route>
           <Route path="/panelMember" element={<PanelMemberHome />}></Route>
+
+          <Route path="/topicRegister" element={<TopicRegister />}></Route>
+          <Route path="/topicView" element={<TopicView />}></Route>
         </Routes>
       </BrowserRouter>
 

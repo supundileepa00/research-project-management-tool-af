@@ -72,4 +72,19 @@ router.route("/update/:id").put(async (req, res) => {
     });
 });
 
+//delete Topic
+router.route("/delete/:id").delete(async (req, res) => {
+  let Id = req.params.id;
+
+  await TopicSelect.findByIdAndDelete(Id)
+    .then(() => {
+      res.status(200).send({ status: "Topic Deleted" });
+    })
+    .catch((err) => {
+      res
+        .status(500)
+        .send({ status: "Error with delete Topic", error: err.message });
+    });
+});
+
 module.exports = router;

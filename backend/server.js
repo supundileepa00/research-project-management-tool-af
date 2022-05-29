@@ -26,11 +26,11 @@ connection.once("open", () => {
   console.log("Mongodb Connection Success!!");
 });
 
-
-
 const TopicRouter = require("./routes/adminRoutes/topics");
 app.use("/rpmt/topics", TopicRouter);
 
+const AcceptRouter = require("./routes/adminRoutes/accepted");
+app.use("/rpmt/topics", AcceptRouter);
 
 //---------------------admin----------------------
 //router
