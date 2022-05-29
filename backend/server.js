@@ -37,3 +37,23 @@ app.use("/rpmt/topics", TopicRouter);
 app.listen(PORT, () => {
   console.log("Server is up and running on ", PORT);
 });
+
+//---------------------admin----------------------
+//router
+const StudentRouter = require("./routes/adminRoutes/student");
+app.use("/rpmt/students", StudentRouter);
+
+const StaffRouter = require("./routes/adminRoutes/staff");
+app.use("/rpmt/staff", StaffRouter);
+
+const templateRouter = require("./routes/adminRoutes/template");
+app.use("/rpmt/templates", templateRouter);
+
+const LoginRouter = require("./routes/adminRoutes/logins");
+app.use("/rpmt/users", LoginRouter);
+
+//---------------------student----------------------
+//router
+
+const ResearchRouter = require("./routes/studentRoutes/research");
+app.use("/rpmt/research", ResearchRouter);
