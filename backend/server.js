@@ -26,10 +26,7 @@ connection.once("open", () => {
   console.log("Mongodb Connection Success!!");
 });
 
-//load/run app on the port
-app.listen(PORT, () => {
-  console.log("Server is up and running on ", PORT);
-});
+//###############################################-Routes-##############################################################
 
 //---------------------admin----------------------
 //router
@@ -47,6 +44,12 @@ app.use("/rpmt/users", LoginRouter);
 
 //---------------------student----------------------
 //router
-
 const ResearchRouter = require("./routes/studentRoutes/research");
 app.use("/rpmt/research", ResearchRouter);
+
+//##################################################<----Run the server---->##############################################
+
+//load/run app on the port
+app.listen(PORT, () => {
+  console.log("Server is up and running on ", PORT);
+});
