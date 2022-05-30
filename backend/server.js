@@ -32,6 +32,9 @@ app.use("/rpmt/topics", TopicRouter);
 const AcceptRouter = require("./routes/adminRoutes/accepted");
 app.use("/rpmt/topics", AcceptRouter);
 
+const RejectRouter = require("./routes/adminRoutes/rejected");
+app.use("/rpmt/topics", RejectRouter);
+
 //---------------------admin----------------------
 //router
 const StudentRouter = require("./routes/adminRoutes/student");

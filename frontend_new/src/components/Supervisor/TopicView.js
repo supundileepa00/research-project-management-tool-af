@@ -73,6 +73,32 @@ function viewTopics() {
         console.log(err);
       });
   }
+
+  function rejectButton(topic) {
+    console.log("Start Rejecting");
+    console.log(topic);
+    axios
+      .post("http://localhost:5000/rpmt/topics/rejectedTopic", topic)
+      .then((res) => {
+        alert("Topic Rejected");
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+
+    axios
+      .delete("http://localhost:5000/rpmt/topics/delete/" + topic._id)
+      .then((res) => {
+        alert("Topic Deleted");
+        getAllTopics();
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
+
   return (
     <div>
       {topics.map((topic, key) => (
@@ -115,7 +141,14 @@ function viewTopics() {
             >
               Accept
             </Button>
-            <Button size="small" variant="contained" color="error">
+            <Button
+              size="small"
+              variant="contained"
+              color="error"
+              onClick={() => {
+                rejectButton(topic);
+              }}
+            >
               Reject
             </Button>
           </CardActions>
