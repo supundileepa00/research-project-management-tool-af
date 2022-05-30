@@ -1,5 +1,6 @@
 import { Container } from "@mui/material";
 import Card from "@mui/material/Card";
+import { Link, useNavigate } from "react-router-dom";
 import { Button, Grid, Paper } from "@mui/material";
 import { CardActionArea, CardActions } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
@@ -60,7 +61,7 @@ function StudentHome() {
           >
             <CardActionArea
               onClick={() => {
-                navigate("/student/templates");
+                navigate("/student/addResearch");
               }}
             >
               <center>
