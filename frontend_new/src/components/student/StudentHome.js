@@ -9,6 +9,7 @@ import Typography from "@mui/material/Typography";
 import ResponsiveStudentHome from "../appBar/ResponsiveStudentHome";
 
 function StudentHome() {
+  const navigate = useNavigate();
   return (
     <div>
       <ResponsiveStudentHome />

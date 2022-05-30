@@ -124,7 +124,7 @@ function AddResearch() {
                   id="file"
                   name="file"
                   onChange={(e) => {
-                    setDocumentName(e.target.files[0].name);
+                    setDocumentName(e.target.files[0]);
                   }}
                 />
                 <br />
