@@ -31,7 +31,7 @@ const pages = [
 ];
 const settings = ["Logout"];
 
-const ResponsiveAdminHome = () => {
+const ResponsiveAppBarTemplate = () => {
   const navigate = useNavigate();
 
   const [anchorElNav, setAnchorElNav] = React.useState(null);

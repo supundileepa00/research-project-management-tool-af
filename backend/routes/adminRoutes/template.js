@@ -33,7 +33,7 @@ router
       const title = req.body.title;
       const description = req.body.description;
       const postedDate = req.body.postedDate;
-      const templateDocument = result.secure_url;
+      const templateDocument = result.url;
       const cloudinaryID = result.public_id;
 
       //create instance
