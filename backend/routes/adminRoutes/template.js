@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const multer = require("multer");
 let Template = require("./../../models/adminModels/Templates");
-const { v4: uuidv4 } = require("uuid");
+
 const cloudinary = require("../../utils/cloudinary");
 
 const upload = require("../../utils/multer");

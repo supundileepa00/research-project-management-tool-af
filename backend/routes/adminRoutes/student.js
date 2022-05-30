@@ -24,6 +24,7 @@ router.route("/registerStudent").post((req, res) => {
     .save()
     .then(() => {
       res.json("Student Registration Successfull!!");
+      res.status(200);
     })
     .catch((err) => {
       console.log(err);

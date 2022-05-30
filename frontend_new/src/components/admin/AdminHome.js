@@ -111,7 +111,7 @@ function AdminHome() {
                 <Avatar
                   alt="Item Image"
                   src={require("./images/document.png")}
-                  sx={{ width: 150, height: 150 }}
+                  sx={{ width: 120, height: 120 }}
                 />
               </center>
               <CardContent>
@@ -121,10 +121,10 @@ function AdminHome() {
                   component="div"
                   style={{ fontWeight: 500, color: "#A3A3A3" }}
                 >
-                  Templates
+                  Upload Documents / Templates
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Upload document/presentation templates
+                  Upload document/presentation templates for students.
                 </Typography>
               </CardContent>
             </CardActionArea>

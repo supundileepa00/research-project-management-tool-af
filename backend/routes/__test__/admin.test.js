@@ -69,4 +69,118 @@ describe("User /login", () => {
       expect(response.body.template).toBeDefined();
     });
   });
+
+  //----------------------------staff-------------------------------------//
+
+  //Add Staff Member
+  describe("Add Staff Member", () => {
+    test("should give 200 status & give success message", async () => {
+      const response = await request(app)
+        .post("/rpmt/staff/registerStaffMember")
+        .send({
+          name: "testname",
+          idNumber: "testid",
+          faculty: "testfaculty",
+          department: "Testdept",
+          researchInterest: "testrt",
+          type: "role",
+          password: "testpwd",
+        });
+      console.log(response.body);
+      expect(response.statusCode).toBe(200);
+      expect(response.body).toEqual("Staff Member Registration Successfull!!");
+    });
+  });
+
+  //get all staff members
+  describe("Get All Staff members", () => {
+    test("should give staff list & status as 200", async () => {
+      const response = await request(app).get("/rpmt/staff/").send();
+
+      expect(response.statusCode).toBe(200);
+      expect(response.body).toBeDefined();
+    });
+  });
+
+  //delete
+
+  describe("Remove non existing staff member", () => {
+    test("should give error message", async () => {
+      const response = await request(app)
+        .delete("/rpmt/staff/delete/62891cefe6ee56f161263sd3bf")
+        .send();
+
+      expect(response.body.status).toEqual("Error while deleting record!!");
+    });
+  });
+
+  //get one staff member details
+  describe("get one staff member details", () => {
+    test("should give 200 status and the member details", async () => {
+      const response = await request(app)
+        .get("/rpmt/staff/get/628933c584d77c71126c279e")
+        .send();
+
+      expect(response.statusCode).toBe(200);
+      expect(response.body.status).toEqual("Staff Member Details");
+      expect(response.body.staff).toBeDefined();
+    });
+  });
+
+  //----------------------------student-------------------------------------//
+
+  //Add Student
+  describe("Add Staff Member", () => {
+    test("should give 200 status & give success message", async () => {
+      const response = await request(app)
+        .post("/rpmt/students/registerStudent")
+        .send({
+          name: "testname",
+          idNumber: "testid",
+          faculty: "testfaculty",
+          department: "Testdept",
+          researchInterest: "testrt",
+          type: "role",
+          password: "testpwd",
+        });
+      console.log(response.body);
+      expect(response.statusCode).toBe(200);
+      expect(response.body).toEqual("Student Registration Successfull!!");
+    });
+  });
+
+  //get all students
+  describe("Get All students", () => {
+    test("should give students list & status as 200", async () => {
+      const response = await request(app).get("/rpmt/students/").send();
+
+      expect(response.statusCode).toBe(200);
+      expect(response.body).toBeDefined();
+    });
+  });
+
+  //delete
+
+  describe("Remove non existing student", () => {
+    test("should give error message", async () => {
+      const response = await request(app)
+        .delete("/rpmt/students/delete/62891cefe6ee56f161263sd3bf")
+        .send();
+
+      expect(response.body.status).toEqual("Error with delete Student");
+    });
+  });
+
+  //get one student
+  describe("get one student details", () => {
+    test("should give 200 status and the student details", async () => {
+      const response = await request(app)
+        .get("/rpmt/students/get/628933c584d77c71126c279e")
+        .send();
+
+      expect(response.statusCode).toBe(200);
+      expect(response.body.status).toEqual("Student Details");
+      expect(response.body.student).toBeDefined();
+    });
+  });
 });
