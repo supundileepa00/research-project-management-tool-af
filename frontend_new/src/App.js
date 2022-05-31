@@ -18,6 +18,8 @@ import UpdateStudent from "./components/admin/Users/Student/UpdateStudent";
 import AddAdmin from "./components/admin/AddAdmin";
 import PanelMemberHome from "./components/PanelMemberHome";
 import AddResearch from "./components/student/AddResearch";
+import ViewResearch from "./components/student/ViewResearch";
+import EditResearch from "./components/student/EditResearch";
 
 export function App() {
   return (
@@ -60,6 +62,8 @@ export function App() {
           <Route path="/panelMember" element={<PanelMemberHome />}></Route>
 
           <Route path="/student/addResearch" element={<AddResearch />}></Route>
+          <Route path="/student/viewResearch" element={<ViewResearch />}></Route>
+          <Route path="/student/viewResearch/update/:id" element={<EditResearch />}></Route>
         </Routes>
       </BrowserRouter>
 

@@ -6,7 +6,8 @@ import { CardActionArea, CardActions } from "@mui/material";
 import Avatar from "@mui/material/Avatar";
 import CardContent from "@mui/material/CardContent";
 import Typography from "@mui/material/Typography";
-import ResponsiveStudentHome from "../appBar/ResponsiveStudentHome";
+import ResponsiveStudentHome from "../appBar/ResponsiveAppBarStudentHome";
+import ResponsiveStudentUpdateResearch from "../appBar/ResponsiveAppBarStudentUpdateResearch";
 
 function StudentHome() {
   const navigate = useNavigate();
@@ -30,13 +31,13 @@ function StudentHome() {
           >
             <CardActionArea
               onClick={() => {
-                navigate("/student/templates");
+                navigate("viewResearch");
               }}
             >
               <center>
                 <Avatar
                   alt="Item Image"
-                  src={require("./images/search.png")}
+                  src={require("./images/researchIcon.png")}
                   sx={{ width: 150, height: 150 }}
                 />
               </center>
@@ -68,7 +69,7 @@ function StudentHome() {
               <center>
                 <Avatar
                   alt="Item Image"
-                  src={require("./images/add-button.png")}
+                  src={require("./images/addDoc.png")}
                   sx={{ width: 150, height: 150 }}
                 />
               </center>
