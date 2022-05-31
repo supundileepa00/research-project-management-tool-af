@@ -59,7 +59,7 @@ export function App() {
           <Route path="/addAdmin" element={<AddAdmin />}></Route>
           <Route path="/panelMember" element={<PanelMemberHome />}></Route>
 
-          <Route path="/addResearch" element={<AddResearch />}></Route>
+          <Route path="/student/addResearch" element={<AddResearch />}></Route>
         </Routes>
       </BrowserRouter>
 
