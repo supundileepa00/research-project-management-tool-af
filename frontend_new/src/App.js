@@ -19,6 +19,7 @@ import AddAdmin from "./components/admin/AddAdmin";
 import PanelMemberHome from "./components/PanelMemberHome";
 import TopicRegister from "./components/Supervisor/TopicicRegister";
 import TopicView from "./components/Supervisor/TopicView";
+import TopicStatus from "./components/Supervisor/TopicStatus";
 
 export function App() {
   return (
@@ -62,6 +63,7 @@ export function App() {
 
           <Route path="/topicRegister" element={<TopicRegister />}></Route>
           <Route path="/topicView" element={<TopicView />}></Route>
+          <Route path="/status" element={<TopicStatus />}></Route>
         </Routes>
       </BrowserRouter>
 
