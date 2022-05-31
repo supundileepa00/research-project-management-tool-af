@@ -106,10 +106,26 @@ router.route("/delete/:id").delete(async (req, res) => {
 });
 
 //get one research details by group id
-router.route("/get/:id").get((req, res) => {
+router.route("/getGroup/:id").get((req, res) => {
   let researchId = req.params.id;
 
   Research.find({ groupID: researchId })
+    .then((research) => {
+      res.status(200).send({ status: "Research fetched", research });
+    })
+    .catch((err) => {
+      console.log(err);
+      res
+        .status(500)
+        .send({ status: "Error with get research", error: err.message });
+    });
+});
+
+//get research details by id
+router.route("/get/:id").get((req, res) => {
+  let researchId = req.params.id;
+
+  Research.findById(researchId)
     .then((research) => {
       res.status(200).send({ status: "Research fetched", research });
     })
