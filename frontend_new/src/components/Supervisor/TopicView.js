@@ -9,6 +9,7 @@ import axios from "axios";
 import { useEffects, useState } from "react";
 import { container } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
+import { Button, Grid, Paper } from "@mui/material";
 
 function viewTopics() {
   const navigate = useNavigate();
@@ -53,7 +54,7 @@ function viewTopics() {
     // };
     console.log(topic);
     axios
-      .post("http://localhost:5000/rpmt/topics/acceptedTopic", topic)
+      .post("http://localhost:5000/rpmt/acceptedTopics/add", topic)
       .then((res) => {
         alert("Topic Accepted");
         console.log(res);
@@ -78,7 +79,7 @@ function viewTopics() {
     console.log("Start Rejecting");
     console.log(topic);
     axios
-      .post("http://localhost:5000/rpmt/topics/rejectedTopic", topic)
+      .post("http://localhost:5000/rpmt/rejectedTopics/add", topic)
       .then((res) => {
         alert("Topic Rejected");
         console.log(res);
@@ -101,59 +102,84 @@ function viewTopics() {
 
   return (
     <div>
-      {topics.map((topic, key) => (
-        <Card
-          sx={{ width: 500, height: 400, mx: 2, my: 3 }}
-          style={{ backgroundColor: "#FFE0B2" }}
-          elevation={3}
-        >
-          <CardContent>
-            <Typography gutterBottom variant="h5" component="div">
-              Register No : {topic.studentId}
-            </Typography>
-            <Typography gutterBottom variant="h5" component="div">
-              Name : {topic.name}
-            </Typography>
-            <Typography gutterBottom variant="h5" component="div">
-              Group ID : {topic.groupId}
-            </Typography>
-            <Typography gutterBottom variant="h5" component="div">
-              Faculty : {topic.faculty}
-            </Typography>
-            <Typography gutterBottom variant="h5" component="div">
-              Department : {topic.department}
-            </Typography>
-            <Typography gutterBottom variant="h5" component="div">
-              Research Field : {topic.researchField}
-            </Typography>
-            <Typography gutterBottom variant="h5" component="div">
-              Topic : {topic.topic}
-            </Typography>
-          </CardContent>
-          <CardActions>
-            <Button
-              size="small"
-              variant="contained"
-              color="success"
-              onClick={() => {
-                acceptButton(topic);
-              }}
-            >
-              Accept
-            </Button>
-            <Button
-              size="small"
-              variant="contained"
-              color="error"
-              onClick={() => {
-                rejectButton(topic);
-              }}
-            >
-              Reject
-            </Button>
-          </CardActions>
-        </Card>
-      ))}
+      <Grid
+        container
+        direction="row"
+        justifyContent="flex-start"
+        alignItems="flex-start"
+        spacing={10}
+        sx={{ mt: 3, p: 3, ml: 3 }}
+      >
+        {topics.map((topic, key) => (
+          <Card
+            sx={{ width: 500, height: 400, mx: 2, my: 3 }}
+            style={{ backgroundColor: "#FFE0B2" }}
+            elevation={3}
+          >
+            <CardContent>
+              <Typography gutterBottom variant="h5" component="div">
+                Register No : {topic.studentId}
+              </Typography>
+              <Typography gutterBottom variant="h5" component="div">
+                Name : {topic.name}
+              </Typography>
+              <Typography gutterBottom variant="h5" component="div">
+                Group ID : {topic.groupId}
+              </Typography>
+              <Typography gutterBottom variant="h5" component="div">
+                Faculty : {topic.faculty}
+              </Typography>
+              <Typography gutterBottom variant="h5" component="div">
+                Department : {topic.department}
+              </Typography>
+              <Typography gutterBottom variant="h5" component="div">
+                Research Field : {topic.researchField}
+              </Typography>
+              <Typography gutterBottom variant="h5" component="div">
+                Topic : {topic.topic}
+              </Typography>
+            </CardContent>
+            <CardActions>
+              <Button
+                size="small"
+                variant="contained"
+                color="success"
+                onClick={() => {
+                  acceptButton(topic);
+                }}
+              >
+                Accept
+              </Button>
+              <Button
+                size="small"
+                variant="contained"
+                color="error"
+                onClick={() => {
+                  rejectButton(topic);
+                }}
+              >
+                Reject
+              </Button>
+            </CardActions>
+          </Card>
+        ))}
+      </Grid>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
+      <br></br>
     </div>
   );
 }

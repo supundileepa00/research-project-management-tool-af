@@ -26,24 +26,24 @@ function Status() {
 
   const [rejectedTopics, setRejectedTopics] = useState([]);
 
-  const loadAcceptedTopics = () => {
-    axios
-      .get("http://localhost:5000/rpmt/acceptedTopic/")
-      .then((res) => {
-        setAcceptedTopics(res.data);
-        console.log(res);
-        if (res.data.length == 0) {
-          setNodata(true);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  //   const loadAcceptedTopics = () => {
+  //     axios
+  //       .get("http://localhost:5000/rpmt/acceptedTopics/")
+  //       .then((res) => {
+  //         setAcceptedTopics(res.data);
+  //         console.log(res);
+  //         if (res.data.length == 0) {
+  //           setNodata(true);
+  //         }
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   };
   useEffect(() => {
     function getAcceptedTopics() {
       axios
-        .get("http://localhost:5000/rpmt/topics/acceptedTopic")
+        .get("http://localhost:5000/rpmt/acceptedTopics")
         .then((res) => {
           setAcceptedTopics(res.data);
           console.log(res);
@@ -58,25 +58,25 @@ function Status() {
     getAcceptedTopics();
   }, []);
 
-  const loadRejectedTopics = () => {
-    axios
-      .get("http://localhost:5000/rpmt/rejectedTopic/")
-      .then((res) => {
-        setRejectedTopics(res.data);
-        console.log(res);
-        if (res.data.length == 0) {
-          setNodata(true);
-        }
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  //   const loadRejectedTopics = () => {
+  //     axios
+  //       .get("http://localhost:5000/rpmt/rejectedTopic/")
+  //       .then((res) => {
+  //         setRejectedTopics(res.data);
+  //         console.log(res);
+  //         if (res.data.length == 0) {
+  //           setNodata(true);
+  //         }
+  //       })
+  //       .catch((err) => {
+  //         console.log(err);
+  //       });
+  //   };
 
   useEffect(() => {
     function getRejectedTopics() {
       axios
-        .get("http://localhost:5000/rpmt/topics/rejectedTopics")
+        .get("http://localhost:5000/rpmt/rejectedTopics")
         .then((res) => {
           setRejectedTopics(res.data);
           console.log(res);
@@ -140,36 +140,6 @@ function Status() {
                       <TableCell align="left">
                         {acceptedTopic.specialization}
                       </TableCell>
-                      <TableCell align="left">
-                        <Link to={"update/" + student._id} className="edit">
-                          <Button variant="contained" color="warning">
-                            Update
-                          </Button>
-                        </Link>
-                      </TableCell>
-                      <TableCell align="left">
-                        <Button
-                          variant="contained"
-                          color="error"
-                          onClick={() => {
-                            Swal.fire({
-                              title: "Warning!",
-                              text: "Do you want to delete the user?",
-                              icon: "warning",
-                              showCancelButton: true,
-                              confirmButtonText: "Ok",
-                              confirmButtonColor: "#C81E1E",
-                            }).then((result) => {
-                              if (result.isConfirmed) {
-                                deleteStudent(student._id, student.idNumber);
-                              } else {
-                              }
-                            });
-                          }}
-                        >
-                          Delete
-                        </Button>
-                      </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>
@@ -226,36 +196,6 @@ function Status() {
 
                       <TableCell align="left">
                         {rejectedTopic.specialization}
-                      </TableCell>
-                      <TableCell align="left">
-                        <Link to={"update/" + student._id} className="edit">
-                          <Button variant="contained" color="warning">
-                            Update
-                          </Button>
-                        </Link>
-                      </TableCell>
-                      <TableCell align="left">
-                        <Button
-                          variant="contained"
-                          color="error"
-                          onClick={() => {
-                            Swal.fire({
-                              title: "Warning!",
-                              text: "Do you want to delete the user?",
-                              icon: "warning",
-                              showCancelButton: true,
-                              confirmButtonText: "Ok",
-                              confirmButtonColor: "#C81E1E",
-                            }).then((result) => {
-                              if (result.isConfirmed) {
-                                deleteStudent(student._id, student.idNumber);
-                              } else {
-                              }
-                            });
-                          }}
-                        >
-                          Delete
-                        </Button>
                       </TableCell>
                     </TableRow>
                   ))}

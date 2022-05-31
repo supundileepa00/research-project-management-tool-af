@@ -30,10 +30,10 @@ const TopicRouter = require("./routes/adminRoutes/topics");
 app.use("/rpmt/topics", TopicRouter);
 
 const AcceptRouter = require("./routes/adminRoutes/accepted");
-app.use("/rpmt/topics", AcceptRouter);
+app.use("/rpmt/acceptedTopics", AcceptRouter);
 
 const RejectRouter = require("./routes/adminRoutes/rejected");
-app.use("/rpmt/topics", RejectRouter);
+app.use("/rpmt/rejectedTopics", RejectRouter);
 
 //---------------------admin----------------------
 //router
