@@ -42,7 +42,7 @@ function ViewTemplates() {
     axios
       .delete("http://localhost:5000/rpmt/templates/delete/" + id)
       .then(() => {
-        window.location.reload(false);
+        getAllTemplates();
       });
   };
   useEffect(() => {
@@ -59,6 +59,18 @@ function ViewTemplates() {
     }
     getTemplates();
   }, []);
+
+  function getAllTemplates() {
+    axios
+      .get("http://localhost:5000/rpmt/templates/")
+      .then((res) => {
+        setTemplates(res.data);
+        console.log(res);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }
   return (
     <div>
       <ResponsiveAdminHome />

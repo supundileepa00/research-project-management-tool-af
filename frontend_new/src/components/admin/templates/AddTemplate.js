@@ -5,8 +5,11 @@ import { useEffect, useState } from "react";
 import Loader from "../loader/Loader";
 import Typography from "@mui/material/Typography";
 import Input from "@mui/material/Input";
+import { useNavigate } from "react-router-dom";
+import ResponsiveAppBarTemplate from "../../appBar/ResponsiveAppBarTemplate";
 
 function AddTemplate() {
+  const navigate = useNavigate();
   const [loading, setLoading] = useState(false);
   const [type, setType] = useState("");
   const [title, setTitle] = useState("");
@@ -42,6 +45,7 @@ function AddTemplate() {
         form.reset();
         setLoading(false);
         setShowText(true);
+        navigate("/admin/templates");
       })
       .catch((err) => {
         alert(err);
@@ -63,7 +67,7 @@ function AddTemplate() {
 
   return (
     <div>
-      {/* <ResponsiveAppBar /> */}
+      <ResponsiveAppBarTemplate />
       <Container>
         <Paper elevation={7}>
           <Box sx={{ m: 5 }}>

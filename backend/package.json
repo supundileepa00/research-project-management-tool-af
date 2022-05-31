@@ -4,7 +4,8 @@
   "description": "Research Project Management Tool for Application Framework Module",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "nodemon server.js",
+    "test": "jest"
   },
   "keywords": [
     "Application",
@@ -27,5 +28,9 @@
     "multer": "^1.4.4",
     "nodemon": "^2.0.15",
     "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "jest": "^28.1.0",
+    "supertest": "^6.2.3"
   }
 }
