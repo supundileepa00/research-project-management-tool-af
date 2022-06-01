@@ -1,13 +1,23 @@
-import { Button, Container, Grid, Paper, TextField } from "@mui/material";
+import { useParams } from "react-router-dom";
+import {
+  Button,
+  Container,
+  Grid,
+  Paper,
+  TextField,
+} from "@mui/material";
 import { Box } from "@mui/system";
 import axios from "axios";
 import { useEffect, useState } from "react";
 import Loader from "../admin/loader/Loader";
 import Typography from "@mui/material/Typography";
-import Input from "@mui/material/Input";
 import { useNavigate } from "react-router-dom";
+import ResponsiveStudentUpdateResearch from "../appBar/ResponsiveAppBarStudentUpdateResearch";
 
-function AddResearch() {
+function EditResearch() {
+  const paramID = useParams("");
+  let navigate = useNavigate();
+
   const [loading, setLoading] = useState(false);
   const [name, setName] = useState("");
   const [topic, setTopic] = useState("");
@@ -15,8 +25,7 @@ function AddResearch() {
   const [faculty, setFaculty] = useState("");
   const [documentName, setDocumentName] = useState("");
   const [showText, setShowText] = useState(false);
-
-  const navigate = useNavigate();
+  const [currentResearch, setCurrentResearch] = useState({});
 
   const handleSubmit = (e) => {
     setShowText(false);
@@ -34,10 +43,10 @@ function AddResearch() {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5000/rpmt/research/add/", formData)
+      .put("http://localhost:5000/rpmt/research/update/" + paramID.id, formData)
       .then((res) => {
         console.log(res);
-        console.log("Research Added!!");
+        console.log("Research Updated!!");
 
         setName("");
         setTopic("");
@@ -53,17 +62,34 @@ function AddResearch() {
       });
 
     setTimeout(() => {
-      navigate("/student");
+      navigate("/student/viewResearch");
     }, 5000);
   };
 
+  useEffect(() => {
+    axios
+      .get("http://localhost:5000/rpmt/research/get/" + paramID.id)
+      .then((res) => {
+        setCurrentResearch(res.data);
+        console.log(res);
+        setName(res.data.research.name);
+        setTopic(res.data.research.topic);
+        setGroupID(res.data.research.groupID);
+        setFaculty(res.data.research.faculty);
+      })
+      .catch((err) => {
+        alert(err);
+      });
+  }, []);
+
   return (
     <div>
-      <Container>
+      <ResponsiveStudentUpdateResearch />
+      <Container sx={{ mt: 15 }}>
         <Paper elevation={7}>
           <Box sx={{ m: 5 }}>
             <br />
-            <h2>Add Research</h2>
+            <h2>Edit Research</h2>
             <br />
 
             <Grid>
@@ -72,10 +98,11 @@ function AddResearch() {
                 onSubmit={handleSubmit}
                 encType="multipart/form-data"
               >
-                <br />
-                <br />
+                <Grid item md={6}>
+                  <br />
+                  <br />
+                </Grid>
                 <TextField
-                  id="outlined-basic"
                   label="Name"
                   variant="outlined"
                   value={name}
@@ -88,7 +115,6 @@ function AddResearch() {
                 <br />
                 <br />
                 <TextField
-                  id="outlined-basic"
                   label="Topic"
                   variant="outlined"
                   value={topic}
@@ -101,7 +127,6 @@ function AddResearch() {
                 <br />
                 <br />
                 <TextField
-                  id="outlined-basic"
                   label="Group ID"
                   variant="outlined"
                   value={groupID}
@@ -114,7 +139,6 @@ function AddResearch() {
                 <br />
                 <br />
                 <TextField
-                  id="outlined-basic"
                   label="Faculty"
                   variant="outlined"
                   value={faculty}
@@ -126,10 +150,9 @@ function AddResearch() {
                 />
                 <br />
                 <br />
-                <Input
+                <input
                   type="file"
-                  id="file"
-                  name="file"
+                  name="document"
                   onChange={(e) => {
                     setDocumentName(e.target.files[0]);
                   }}
@@ -139,15 +162,14 @@ function AddResearch() {
                 <Button
                   variant="contained"
                   color="primary"
-                  type="submit"
+                  type="warning"
                   disabled={loading}
-                  style={{ marginTop: "10px" }}
                 >
-                  Add Research Document
+                  Update Research
                 </Button>
                 {showText ? (
-                  <Typography variant="subtitle1" color="#00e676">
-                    Document Added
+                  <Typography variant="h6" color="primary">
+                    Research Updated Successfully
                   </Typography>
                 ) : null}
                 {loading ? <Loader /> : null}
@@ -162,4 +184,4 @@ function AddResearch() {
   );
 }
 
-export default AddResearch;
+export default EditResearch;
