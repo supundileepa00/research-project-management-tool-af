@@ -1,7 +1,7 @@
 const request = require("supertest");
 const app = require("../../server");
 
-describe("User /login", () => {
+describe("Admin /login", () => {
   //Test Case : TA001
   describe("Given username password and role", () => {
     test("should give 200 status", async () => {
