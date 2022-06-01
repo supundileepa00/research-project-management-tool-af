@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import { useParams } from "react-router-dom";
 import ResponsiveAdminSubStd from "../../../appBar/ResponsiveAdminSubStd";
+import url from "../../../store/store";
 
 function UpdateStudent() {
   const [loading, setLoading] = useState(false);
@@ -37,10 +38,7 @@ function UpdateStudent() {
     };
 
     axios
-      .put(
-        "http://localhost:5000/rpmt/students/update/" + paramID.id,
-        newStudent
-      )
+      .put(url + "/students/update/" + paramID.id, newStudent)
       .then((res) => {
         console.log(res);
         console.log("Student Updated!!");
@@ -63,7 +61,7 @@ function UpdateStudent() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/rpmt/students/get/" + paramID.id)
+      .get(url + "/students/get/" + paramID.id)
       .then((res) => {
         console.log(res.data);
         setStudentName(res.data.student.name);

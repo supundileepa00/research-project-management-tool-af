@@ -9,6 +9,7 @@ import { useEffect, useState } from "react";
 import { Container } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import ResponsiveStudentHome from "../../appBar/ResponsiveAppBarStudentHome";
+import url from "../../store/store";
 
 function ViewTemplates() {
   const navigate = useNavigate();
@@ -18,7 +19,7 @@ function ViewTemplates() {
   useEffect(() => {
     function getTemplates() {
       axios
-        .get("http://localhost:5000/rpmt/templates/")
+        .get(url + "/templates/")
         .then((res) => {
           setTemplates(res.data);
           console.log(res);

@@ -7,6 +7,7 @@ import Loader from "../loader/Loader";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import ResponsiveAdminUpdateTemplate from "../../appBar/ResponsiveAdminUpdateTemplate";
+import url from "../../store/store";
 
 function UpdateTemplate() {
   const paramID = useParams("");
@@ -36,10 +37,7 @@ function UpdateTemplate() {
     e.preventDefault();
 
     axios
-      .put(
-        "http://localhost:5000/rpmt/templates/update/" + paramID.id,
-        formData
-      )
+      .put(url + "/templates/update/" + paramID.id, formData)
       .then((res) => {
         console.log(res);
         console.log("Template Updated!!");
@@ -61,7 +59,7 @@ function UpdateTemplate() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/rpmt/templates/get/" + paramID.id)
+      .get(url + "/templates/get/" + paramID.id)
       .then((res) => {
         setCurrentTemplate(res.data);
         console.log(res);

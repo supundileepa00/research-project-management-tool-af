@@ -8,6 +8,7 @@ import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import ResponsiveStudentHome from "../appBar/ResponsiveAppBarStudentHome";
+import url from "../store/store";
 
 export default function EditGroup() {
   const paramID = useParams("");
@@ -35,7 +36,7 @@ export default function EditGroup() {
     e.preventDefault();
 
     axios
-      .put("http://localhost:5000/rpmt/group/update/" + paramID.id, groupData)
+      .put(url + "/group/update/" + paramID.id, groupData)
       .then((res) => {
         console.log(res);
         console.log("Group Updated!!");
@@ -69,16 +70,14 @@ export default function EditGroup() {
   };
 
   useEffect(() => {
-    axios
-      .get("http://localhost:5000/rpmt/group/get/" + paramID.id)
-      .then((res) => {
-        console.log(res);
-        setCurrentGroup(res.data);
-        setLeader(res.data.group.leader);
-        setMember1(res.data.group.member1);
-        setMember2(res.data.group.member2);
-        setMember3(res.data.group.member3);
-      });
+    axios.get(url + "/group/get/" + paramID.id).then((res) => {
+      console.log(res);
+      setCurrentGroup(res.data);
+      setLeader(res.data.group.leader);
+      setMember1(res.data.group.member1);
+      setMember2(res.data.group.member2);
+      setMember3(res.data.group.member3);
+    });
   }, []);
 
   return (

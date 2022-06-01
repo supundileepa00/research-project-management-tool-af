@@ -16,6 +16,7 @@ import DialogContent from "@mui/material/DialogContent";
 import DialogContentText from "@mui/material/DialogContentText";
 import DialogTitle from "@mui/material/DialogTitle";
 import ResponsiveAdminHome from "../../appBar/ResponsiveAdminHome";
+import url from "../../store/store";
 
 function ViewTemplates() {
   const navigate = useNavigate();
@@ -39,16 +40,14 @@ function ViewTemplates() {
 
   const deleteTemplate = (id) => {
     setOpen(false);
-    axios
-      .delete("http://localhost:5000/rpmt/templates/delete/" + id)
-      .then(() => {
-        getAllTemplates();
-      });
+    axios.delete(url + "/templates/delete/" + id).then(() => {
+      getAllTemplates();
+    });
   };
   useEffect(() => {
     function getTemplates() {
       axios
-        .get("http://localhost:5000/rpmt/templates/")
+        .get(url + "/templates/")
         .then((res) => {
           setTemplates(res.data);
           console.log(res);
@@ -62,7 +61,7 @@ function ViewTemplates() {
 
   function getAllTemplates() {
     axios
-      .get("http://localhost:5000/rpmt/templates/")
+      .get(url + "/templates/")
       .then((res) => {
         setTemplates(res.data);
         console.log(res);

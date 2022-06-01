@@ -24,6 +24,7 @@ import TableRow from "@mui/material/TableRow";
 import TableCell from "@mui/material/TableCell";
 import TableBody from "@mui/material/TableBody";
 import ResponsiveStudentHome from "../appBar/ResponsiveAppBarStudentHome";
+import url from "../store/store";
 
 export default function ViewGroup() {
   const navigate = useNavigate();
@@ -47,13 +48,13 @@ export default function ViewGroup() {
 
   const deleteGroup = (id) => {
     setOpen(false);
-    axios.delete("http://localhost:5000/rpmt/group/delete/" + id).then(() => {
+    axios.delete(url + "/group/delete/" + id).then(() => {
       window.location.reload(false);
     });
   };
   useEffect(() => {
     function getGroup() {
-      axios.get("http://localhost:5000/rpmt/group/").then((res) => {
+      axios.get(url + "/group/").then((res) => {
         setGroup(res.data);
       });
     }

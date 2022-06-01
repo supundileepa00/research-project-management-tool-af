@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import Input from "@mui/material/Input";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
+import url from "../store/store";
 
 function AddGroup() {
   const [loading, setLoading] = useState(false);
@@ -32,7 +33,7 @@ function AddGroup() {
     console.log(newGroup);
 
     axios
-      .post("http://localhost:5000/rpmt/group/add/", newGroup)
+      .post(url + "/group/add/", newGroup)
       .then((res) => {
         console.log(res);
         console.log("Group Added!!");

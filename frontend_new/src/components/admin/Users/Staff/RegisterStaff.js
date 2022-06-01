@@ -12,6 +12,7 @@ import Select, { SelectChangeEvent } from "@mui/material/Select";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import ResponsiveAppBarRegister from "../../../appBar/ResponsiveAppBarRegister";
+import url from "../../../store/store";
 
 function RegisterStaff() {
   const [loading, setLoading] = useState(false);
@@ -67,10 +68,7 @@ function RegisterStaff() {
       };
 
       axios
-        .post(
-          "http://localhost:5000/rpmt/staff/registerStaffMember",
-          newStudent
-        )
+        .post(url + "/staff/registerStaffMember", newStudent)
         .then((res) => {
           console.log(res);
           console.log("Staff Member Added!!");
@@ -83,7 +81,7 @@ function RegisterStaff() {
         });
 
       axios
-        .post("http://localhost:5000/rpmt/users/add/", newLogin)
+        .post(url + "/users/add/", newLogin)
         .then((res) => {
           console.log(res);
           console.log("Staff Login Added!!");

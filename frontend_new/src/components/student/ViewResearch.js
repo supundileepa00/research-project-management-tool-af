@@ -48,16 +48,14 @@ export default function ViewResearch() {
 
   const deleteResearch = (id) => {
     setOpen(false);
-    axios
-      .delete("http://localhost:5000/rpmt/research/delete/" + id)
-      .then(() => {
-        window.location.reload(false);
-      });
+    axios.delete(url + "/research/delete/" + id).then(() => {
+      window.location.reload(false);
+    });
   };
   useEffect(() => {
     function getResearch() {
       axios
-        .get("http://localhost:5000/rpmt/research/")
+        .get(url + "/research/")
         .then((res) => {
           setResearch(res.data);
           console.log(res);
@@ -125,10 +123,7 @@ export default function ViewResearch() {
                             <IconButton
                               aria-label="File Download"
                               onClick={() => {
-                                window.open(
-                                  research.document,
-                                  "_blank"
-                                );
+                                window.open(research.document, "_blank");
                               }}
                             >
                               <FileDownloadIcon />

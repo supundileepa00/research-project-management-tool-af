@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import ResponsiveAppBarRegister from "../../../appBar/ResponsiveAppBarRegister";
+import url from "../../../store/store";
 
 function RegisterStudent() {
   const [loading, setLoading] = useState(false);
@@ -45,7 +46,7 @@ function RegisterStudent() {
       };
 
       axios
-        .post("http://localhost:5000/rpmt/students/registerStudent", newStudent)
+        .post(url + "/students/registerStudent", newStudent)
         .then((res) => {
           console.log(res);
           console.log("Student Added!!");
@@ -58,7 +59,7 @@ function RegisterStudent() {
         });
 
       axios
-        .post("http://localhost:5000/rpmt/users/add/", newLogin)
+        .post(url + "/users/add/", newLogin)
         .then((res) => {
           console.log(res);
           console.log("Student Login Added!!");

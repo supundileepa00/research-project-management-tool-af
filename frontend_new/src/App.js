@@ -28,7 +28,6 @@ import AddGroup from "./components/student/AddGroup";
 import ViewGroup from "./components/student/ViewGroup";
 import EditGroup from "./components/student/EditGroup";
 
-
 export function App() {
   return (
     <div>
@@ -37,7 +36,7 @@ export function App() {
         {/* routes */}
         <Routes>
           <Route path="/" element={<Login />}></Route>
-          <Route path="/templates/add" element={<FileUpload />}></Route>
+          {/* <Route path="/templates/add" element={<FileUpload />}></Route> */}
           <Route path="/admin-home" element={<AdminHome />}></Route>
           <Route path="/addTemplate" element={<AddTemplate />}></Route>
           <Route path="/viewTemplates" element={<ViewTemplates />}></Route>
@@ -65,19 +64,25 @@ export function App() {
           <Route path="/student" element={<StudentHome />}></Route>
           <Route path="/addAdmin" element={<AddAdmin />}></Route>
           <Route path="/panelMember" element={<PanelMemberHome />}></Route>
-
           <Route path="/topicRegister" element={<TopicRegister />}></Route>
           <Route path="/topicView" element={<TopicView />}></Route>
           <Route path="/status" element={<TopicStatus />}></Route>/
           <Route path="/supervisorHome" element={<SupervisorHome />}></Route>
-
-
           <Route path="/student/addResearch" element={<AddResearch />}></Route>
-          <Route path="/student/viewResearch" element={<ViewResearch />}></Route>
-          <Route path="/student/viewResearch/update/:id" element={<EditResearch />}></Route>
+          <Route
+            path="/student/viewResearch"
+            element={<ViewResearch />}
+          ></Route>
+          <Route
+            path="/student/viewResearch/update/:id"
+            element={<EditResearch />}
+          ></Route>
           <Route path="/student/addGroup" element={<AddGroup />}></Route>
           <Route path="/student/viewGroup" element={<ViewGroup />}></Route>
-          <Route path="/student/viewGroup/update/:id" element={<EditGroup />}></Route>
+          <Route
+            path="/student/viewGroup/update/:id"
+            element={<EditGroup />}
+          ></Route>
         </Routes>
       </BrowserRouter>
 

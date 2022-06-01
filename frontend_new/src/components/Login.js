@@ -16,6 +16,7 @@ import { useNavigate } from "react-router-dom";
 import Stack from "@mui/material/Stack";
 import Swal from "sweetalert2";
 import ResponsiveAppBarLogin from "./appBar/ResponsiveAppBarLogin";
+import url from "./store/store";
 
 function Login() {
   const [userID, setUserID] = useState("");
@@ -29,10 +30,7 @@ function Login() {
       password,
     };
 
-    const response = await axios.post(
-      "http://localhost:5000/rpmt/users/login",
-      loginData
-    );
+    const response = await axios.post(url + "/users/login", loginData);
 
     console.log(response);
     const data = response.data;

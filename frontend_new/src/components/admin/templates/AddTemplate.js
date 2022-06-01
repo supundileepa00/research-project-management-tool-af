@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import Input from "@mui/material/Input";
 import { useNavigate } from "react-router-dom";
 import ResponsiveAppBarTemplate from "../../appBar/ResponsiveAppBarTemplate";
+import url from "../../store/store";
 
 function AddTemplate() {
   const navigate = useNavigate();
@@ -33,7 +34,7 @@ function AddTemplate() {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5000/rpmt/templates/add/", formData)
+      .post(url + "/templates/add/", formData)
       .then((res) => {
         console.log(res);
         console.log("Template Added!!");

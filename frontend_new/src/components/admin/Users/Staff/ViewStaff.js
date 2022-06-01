@@ -16,6 +16,7 @@ import TableRow from "@mui/material/TableRow";
 import Paper from "@mui/material/Paper";
 import Swal from "sweetalert2";
 import ResponsiveAdminHome from "../../../appBar/ResponsiveAdminHome";
+import url from "../../../store/store";
 
 function ViewStaff() {
   const navigate = useNavigate();
@@ -28,14 +29,12 @@ function ViewStaff() {
   };
 
   const deletestaff = async (id, idNumber) => {
-    await axios
-      .delete("http://localhost:5000/rpmt/staff/delete/" + id)
-      .then((res) => {
-        console.log(res);
-      });
+    await axios.delete(url + "/staff/delete/" + id).then((res) => {
+      console.log(res);
+    });
 
     await axios
-      .delete("http://localhost:5000/rpmt/users/deleteByUserID/" + idNumber)
+      .delete(url + "/users/deleteByUserID/" + idNumber)
       .then((res) => {
         console.log(res);
       });
@@ -44,7 +43,7 @@ function ViewStaff() {
 
   const loadStaffData = () => {
     axios
-      .get("http://localhost:5000/rpmt/staff/")
+      .get(url + "/staff/")
       .then((res) => {
         setStaff(res.data);
         console.log(res);
@@ -59,7 +58,7 @@ function ViewStaff() {
   useEffect(() => {
     function getStaff() {
       axios
-        .get("http://localhost:5000/rpmt/staff/")
+        .get(url + "/staff/")
         .then((res) => {
           setStaff(res.data);
           console.log(res);

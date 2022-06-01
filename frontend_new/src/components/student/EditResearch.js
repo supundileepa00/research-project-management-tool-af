@@ -1,11 +1,5 @@
 import { useParams } from "react-router-dom";
-import {
-  Button,
-  Container,
-  Grid,
-  Paper,
-  TextField,
-} from "@mui/material";
+import { Button, Container, Grid, Paper, TextField } from "@mui/material";
 import { Box } from "@mui/system";
 import axios from "axios";
 import { useEffect, useState } from "react";
@@ -13,6 +7,7 @@ import Loader from "../admin/loader/Loader";
 import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import ResponsiveStudentUpdateResearch from "../appBar/ResponsiveAppBarStudentUpdateResearch";
+import url from "../store/store";
 
 function EditResearch() {
   const paramID = useParams("");
@@ -43,7 +38,7 @@ function EditResearch() {
     e.preventDefault();
 
     axios
-      .put("http://localhost:5000/rpmt/research/update/" + paramID.id, formData)
+      .put(url + "/research/update/" + paramID.id, formData)
       .then((res) => {
         console.log(res);
         console.log("Research Updated!!");
@@ -68,7 +63,7 @@ function EditResearch() {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/rpmt/research/get/" + paramID.id)
+      .get(url + "/research/get/" + paramID.id)
       .then((res) => {
         setCurrentResearch(res.data);
         console.log(res);

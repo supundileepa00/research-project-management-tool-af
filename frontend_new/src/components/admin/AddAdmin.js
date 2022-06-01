@@ -7,6 +7,7 @@ import Typography from "@mui/material/Typography";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import ResponsiveAdminHome from "../appBar/ResponsiveAdminHome";
+import url from "../store/store";
 function AddAdmin() {
   const [loading, setLoading] = useState(false);
 
@@ -34,7 +35,7 @@ function AddAdmin() {
       };
 
       axios
-        .post("http://localhost:5000/rpmt/users/add/", newLogin)
+        .post(url + "/users/add/", newLogin)
         .then((res) => {
           console.log(res);
           console.log("Admin Login Added!!");

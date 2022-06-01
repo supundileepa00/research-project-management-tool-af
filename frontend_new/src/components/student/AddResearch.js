@@ -6,6 +6,7 @@ import Loader from "../admin/loader/Loader";
 import Typography from "@mui/material/Typography";
 import Input from "@mui/material/Input";
 import { useNavigate } from "react-router-dom";
+import url from "../store/store";
 
 function AddResearch() {
   const [loading, setLoading] = useState(false);
@@ -34,7 +35,7 @@ function AddResearch() {
     e.preventDefault();
 
     axios
-      .post("http://localhost:5000/rpmt/research/add/", formData)
+      .post(url + "/research/add/", formData)
       .then((res) => {
         console.log(res);
         console.log("Research Added!!");

@@ -1,3 +1,3 @@
-const link = "https://research123test.herokuapp.com";
+const url = "https://rptool-sliit.herokuapp.com/rpmt";
 
-export default link;
+export default url;

@@ -17,6 +17,7 @@ import Paper from "@mui/material/Paper";
 import "../usersStye.css";
 import Swal from "sweetalert2";
 import ResponsiveAdminHome from "../../../appBar/ResponsiveAdminHome";
+import url from "../../../store/store";
 
 function ViewStudents() {
   const navigate = useNavigate();
@@ -29,14 +30,12 @@ function ViewStudents() {
   };
 
   const deleteStudent = async (id, idNumber) => {
-    await axios
-      .delete("http://localhost:5000/rpmt/students/delete/" + id)
-      .then((res) => {
-        console.log(res);
-      });
+    await axios.delete(url + "/students/delete/" + id).then((res) => {
+      console.log(res);
+    });
 
     await axios
-      .delete("http://localhost:5000/rpmt/users/deleteByUserID/" + idNumber)
+      .delete(url + "/users/deleteByUserID/" + idNumber)
       .then((res) => {
         console.log(res);
       });
@@ -45,7 +44,7 @@ function ViewStudents() {
 
   const loadStudent = () => {
     axios
-      .get("http://localhost:5000/rpmt/students/")
+      .get(url + "/students/")
       .then((res) => {
         setStudents(res.data);
         console.log(res);
@@ -61,7 +60,7 @@ function ViewStudents() {
   useEffect(() => {
     function getStudents() {
       axios
-        .get("http://localhost:5000/rpmt/students/")
+        .get(url + "/students/")
         .then((res) => {
           setStudents(res.data);
           console.log(res);
