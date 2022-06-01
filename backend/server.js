@@ -26,7 +26,18 @@ connection.once("open", () => {
   // console.log("Mongodb Connection Success!!");
 });
 
+
+const TopicRouter = require("./routes/adminRoutes/topics");
+app.use("/rpmt/topics", TopicRouter);
+
+const AcceptRouter = require("./routes/adminRoutes/accepted");
+app.use("/rpmt/acceptedTopics", AcceptRouter);
+
+const RejectRouter = require("./routes/adminRoutes/rejected");
+app.use("/rpmt/rejectedTopics", RejectRouter);
+
 //###############################################-Routes-##############################################################
+
 
 //---------------------admin----------------------
 //router
@@ -46,6 +57,7 @@ app.use("/rpmt/users", LoginRouter);
 //router
 const ResearchRouter = require("./routes/studentRoutes/research");
 app.use("/rpmt/research", ResearchRouter);
+
 
 const GroupRouter = require("./routes/studentRoutes/group");
 app.use("/rpmt/group", GroupRouter);
