@@ -15,9 +15,14 @@ router.route("/add").post((req, res) => {
     member3,
   });
 
-  newGroup.save().then(() => {
-    res.json("Group Added Successfully!!");
-  });
+  newGroup
+    .save()
+    .then(() => {
+      res.json("Group Added Successfully!!");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
 });
 
 //get all group details

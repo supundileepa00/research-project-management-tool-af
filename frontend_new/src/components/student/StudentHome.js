@@ -84,7 +84,71 @@ function StudentHome() {
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Voluptate, quisquam. 
+                  Voluptate, quisquam.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+          <Card
+            sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}
+            raised
+          >
+            <CardActionArea
+              onClick={() => {
+                navigate("/student/addGroup");
+              }}
+            >
+              <center>
+                <Avatar
+                  alt="Item Image"
+                  src={require("./images/lookGroup.png")}
+                  sx={{ width: 150, height: 150 }}
+                />
+              </center>
+              <CardContent>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  style={{ fontWeight: 500, color: "#A3A3A3" }}
+                >
+                  Add Group
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Voluptate, quisquam.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+          <Card
+            sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270, mt: 3 }}
+            raised
+          >
+            <CardActionArea
+              onClick={() => {
+                navigate("/student/viewGroup");
+              }}
+            >
+              <center>
+                <Avatar
+                  alt="Item Image"
+                  src={require("./images/groupIcon.png")}
+                  sx={{ width: 150, height: 150 }}
+                />
+              </center>
+              <CardContent>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  style={{ fontWeight: 500, color: "#A3A3A3" }}
+                >
+                  View Group
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Voluptate, quisquam.
                 </Typography>
               </CardContent>
             </CardActionArea>
