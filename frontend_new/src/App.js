@@ -21,6 +21,8 @@ import AddResearch from "./components/student/AddResearch";
 import ViewResearch from "./components/student/ViewResearch";
 import EditResearch from "./components/student/EditResearch";
 import AddGroup from "./components/student/AddGroup";
+import ViewGroup from "./components/student/ViewGroup";
+import EditGroup from "./components/student/EditGroup";
 
 export function App() {
   return (
@@ -66,6 +68,8 @@ export function App() {
           <Route path="/student/viewResearch" element={<ViewResearch />}></Route>
           <Route path="/student/viewResearch/update/:id" element={<EditResearch />}></Route>
           <Route path="/student/addGroup" element={<AddGroup />}></Route>
+          <Route path="/student/viewGroup" element={<ViewGroup />}></Route>
+          <Route path="/student/viewGroup/update/:id" element={<EditGroup />}></Route>
         </Routes>
       </BrowserRouter>
 
