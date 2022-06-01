@@ -47,6 +47,9 @@ app.use("/rpmt/users", LoginRouter);
 const ResearchRouter = require("./routes/studentRoutes/research");
 app.use("/rpmt/research", ResearchRouter);
 
+const GroupRouter = require("./routes/studentRoutes/group");
+app.use("/rpmt/group", GroupRouter);
+
 //##################################################<----Run the server---->##############################################
 
 //load/run app on the port
