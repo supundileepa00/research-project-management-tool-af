@@ -20,6 +20,7 @@ import PanelMemberHome from "./components/PanelMemberHome";
 import AddResearch from "./components/student/AddResearch";
 import ViewResearch from "./components/student/ViewResearch";
 import EditResearch from "./components/student/EditResearch";
+import AddGroup from "./components/student/AddGroup";
 
 export function App() {
   return (
@@ -64,6 +65,7 @@ export function App() {
           <Route path="/student/addResearch" element={<AddResearch />}></Route>
           <Route path="/student/viewResearch" element={<ViewResearch />}></Route>
           <Route path="/student/viewResearch/update/:id" element={<EditResearch />}></Route>
+          <Route path="/student/addGroup" element={<AddGroup />}></Route>
         </Routes>
       </BrowserRouter>
 
