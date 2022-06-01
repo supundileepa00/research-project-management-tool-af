@@ -20,6 +20,7 @@ import PanelMemberHome from "./components/PanelMemberHome";
 import TopicRegister from "./components/Supervisor/TopicicRegister";
 import TopicView from "./components/Supervisor/TopicView";
 import TopicStatus from "./components/Supervisor/TopicStatus";
+import SupervisorHome from "./components/SupervisorHome";
 
 export function App() {
   return (
@@ -29,12 +30,10 @@ export function App() {
         {/* routes */}
         <Routes>
           <Route path="/" element={<Login />}></Route>
-
           <Route path="/templates/add" element={<FileUpload />}></Route>
           <Route path="/admin-home" element={<AdminHome />}></Route>
           <Route path="/addTemplate" element={<AddTemplate />}></Route>
           <Route path="/viewTemplates" element={<ViewTemplates />}></Route>
-
           <Route
             path="/admin/templates"
             element={<ViewTemplateAdmin />}
@@ -43,7 +42,6 @@ export function App() {
             path="admin/templates/update/:id"
             element={<UpdateTemplate />}
           ></Route>
-
           <Route path="/registerStudent" element={<RegisterStudent />}></Route>
           <Route path="/registerStaff" element={<RegisterStaff />}></Route>
           <Route path="/admin/students" element={<ViewStudents />}></Route>
@@ -60,10 +58,10 @@ export function App() {
           <Route path="/student" element={<StudentHome />}></Route>
           <Route path="/addAdmin" element={<AddAdmin />}></Route>
           <Route path="/panelMember" element={<PanelMemberHome />}></Route>
-
           <Route path="/topicRegister" element={<TopicRegister />}></Route>
           <Route path="/topicView" element={<TopicView />}></Route>
-          <Route path="/status" element={<TopicStatus />}></Route>
+          <Route path="/status" element={<TopicStatus />}></Route>/
+          <Route path="/supervisorHome" element={<SupervisorHome />}></Route>
         </Routes>
       </BrowserRouter>
 

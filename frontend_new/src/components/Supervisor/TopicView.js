@@ -10,6 +10,7 @@ import { useEffects, useState } from "react";
 import { container } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Grid, Paper } from "@mui/material";
+import ResponsiveSupervisorHome from "../appBar/ResponsiveSupervisorHome";
 
 function viewTopics() {
   const navigate = useNavigate();
@@ -102,6 +103,14 @@ function viewTopics() {
 
   return (
     <div>
+      <ResponsiveSupervisorHome />
+      <br></br>
+      <br></br>
+      <br></br>
+      <center>
+        <h1>Registered Topics</h1>
+      </center>
+
       <Grid
         container
         direction="row"
