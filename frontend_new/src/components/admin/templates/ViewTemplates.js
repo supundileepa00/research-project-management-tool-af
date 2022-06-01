@@ -65,10 +65,7 @@ function ViewTemplates() {
                   window.open(template.templateDocument);
                 }}
               >
-                <img
-                  src={"./icons/adminIcons/" + template.type + ".png"}
-                  width="50"
-                ></img>
+                <img src={require("./icons/presentation.png")} width="50"></img>
                 Download
               </Button>
             </CardActions>
