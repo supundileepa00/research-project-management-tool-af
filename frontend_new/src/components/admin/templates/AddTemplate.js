@@ -68,6 +68,14 @@ function AddTemplate() {
   return (
     <div>
       <ResponsiveAppBarTemplate />
+
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+      <br />
+
       <Container>
         <Paper elevation={7}>
           <Box sx={{ m: 5 }}>
