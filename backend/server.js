@@ -23,8 +23,9 @@ mongoose.connect(URL, {
 //database connection
 const connection = mongoose.connection;
 connection.once("open", () => {
-  console.log("Mongodb Connection Success!!");
+  // console.log("Mongodb Connection Success!!");
 });
+
 
 const TopicRouter = require("./routes/adminRoutes/topics");
 app.use("/rpmt/topics", TopicRouter);
@@ -34,6 +35,9 @@ app.use("/rpmt/acceptedTopics", AcceptRouter);
 
 const RejectRouter = require("./routes/adminRoutes/rejected");
 app.use("/rpmt/rejectedTopics", RejectRouter);
+
+//###############################################-Routes-##############################################################
+
 
 //---------------------admin----------------------
 //router
@@ -51,9 +55,14 @@ app.use("/rpmt/users", LoginRouter);
 
 //---------------------student----------------------
 //router
-
 const ResearchRouter = require("./routes/studentRoutes/research");
 app.use("/rpmt/research", ResearchRouter);
+
+
+const GroupRouter = require("./routes/studentRoutes/group");
+app.use("/rpmt/group", GroupRouter);
+
+//##################################################<----Run the server---->##############################################
 
 //load/run app on the port
 app.listen(PORT, () => {

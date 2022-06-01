@@ -46,7 +46,11 @@ function ViewTemplates() {
               </Typography>
               <br />
 
-              <Typography variant="body2" color="text.secondary">
+              <Typography
+                variant="body2"
+                color="text.secondary"
+                align="justify"
+              >
                 {template.description}
               </Typography>
             </CardContent>

@@ -21,6 +21,10 @@ import TopicRegister from "./components/Supervisor/TopicicRegister";
 import TopicView from "./components/Supervisor/TopicView";
 import TopicStatus from "./components/Supervisor/TopicStatus";
 import SupervisorHome from "./components/SupervisorHome";
+import AddResearch from "./components/student/AddResearch";
+import ViewResearch from "./components/student/ViewResearch";
+import EditResearch from "./components/student/EditResearch";
+
 
 export function App() {
   return (
@@ -58,10 +62,17 @@ export function App() {
           <Route path="/student" element={<StudentHome />}></Route>
           <Route path="/addAdmin" element={<AddAdmin />}></Route>
           <Route path="/panelMember" element={<PanelMemberHome />}></Route>
+
           <Route path="/topicRegister" element={<TopicRegister />}></Route>
           <Route path="/topicView" element={<TopicView />}></Route>
           <Route path="/status" element={<TopicStatus />}></Route>/
           <Route path="/supervisorHome" element={<SupervisorHome />}></Route>
+
+
+          <Route path="/student/addResearch" element={<AddResearch />}></Route>
+          <Route path="/student/viewResearch" element={<ViewResearch />}></Route>
+          <Route path="/student/viewResearch/update/:id" element={<EditResearch />}></Route>
+
         </Routes>
       </BrowserRouter>
 

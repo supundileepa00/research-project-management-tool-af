@@ -19,6 +19,7 @@ router.route("/add").post(async (req, res) => {
 
     newLogin.save().then(() => {
       res.json({ status: "ok", messsage: "Login added" });
+      res.status(200);
     });
   } catch (error) {
     console.log(error);
@@ -30,6 +31,7 @@ router.route("/login").get((req, res) => {
   Login.find()
     .then((logins) => {
       res.json(logins);
+      res.status(200);
     })
     .catch((err) => {
       console.log(err);
@@ -42,7 +44,7 @@ router.route("/delete/:id").delete(async (req, res) => {
 
   await Login.findByIdAndDelete(id)
     .then(() => {
-      res.status(200).send({ status: "Login Deleted", id: id });
+      res.status(204).send({ status: "Login Deleted", id: id });
     })
     .catch((err) => {
       res.status(500).send({ status: "Error while deleting record!!" });
