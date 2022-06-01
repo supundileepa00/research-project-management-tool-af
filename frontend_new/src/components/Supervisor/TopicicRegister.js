@@ -17,6 +17,7 @@ import CardContent from "@mui/material/CardContent";
 import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
+import ResponsiveStudentHome from "../appBar/ResponsiveAppBarStudentHome";
 
 //import TopicView from /components/Supervisor/TopicView';
 
@@ -70,7 +71,12 @@ function TopicRegister() {
 
   return (
     <div>
-      <h1>Topic Register</h1>
+      <ResponsiveStudentHome />
+      <br />
+      <br />
+      <br />
+      <br />
+      <h1 align="center">Topic Register</h1>
       <center>
         <Card sx={{ m: 5, p: 5, width: 500 }} raised>
           <CardContent>
