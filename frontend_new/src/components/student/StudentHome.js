@@ -23,7 +23,7 @@ function StudentHome() {
           justifyContent="flex-start"
           alignItems="flex-start"
           spacing={10}
-          sx={{ mt: 3, p: 2 }}
+          sx={{ mt: 3, p: 2, ml: 3 }}
         >
           <Card
             sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}
@@ -145,6 +145,70 @@ function StudentHome() {
                   style={{ fontWeight: 500, color: "#A3A3A3" }}
                 >
                   View Group
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Voluptate, quisquam.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+          <Card
+            sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270, mt: 3 }}
+            raised
+          >
+            <CardActionArea
+              onClick={() => {
+                navigate("/viewTemplates");
+              }}
+            >
+              <center>
+                <Avatar
+                  alt="Item Image"
+                  src={require("./images/tempIcon.png")}
+                  sx={{ width: 150, height: 150 }}
+                />
+              </center>
+              <CardContent>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  style={{ fontWeight: 500, color: "#A3A3A3" }}
+                >
+                  View Template
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Voluptate, quisquam.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
+          <Card
+            sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270, mt: 3 }}
+            raised
+          >
+            <CardActionArea
+              onClick={() => {
+                navigate("/status");
+              }}
+            >
+              <center>
+                <Avatar
+                  alt="Item Image"
+                  src={require("./images/topicIcon.png")}
+                  sx={{ width: 150, height: 150 }}
+                />
+              </center>
+              <CardContent>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  style={{ fontWeight: 500, color: "#A3A3A3" }}
+                >
+                  View Topics
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
                   lorem ipsum dolor sit amet consectetur adipisicing elit.
