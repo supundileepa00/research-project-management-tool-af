@@ -30,10 +30,10 @@ function AdminHome() {
           justifyContent="flex-start"
           alignItems="flex-start"
           spacing={10}
-          sx={{ mt: 3, p: 2 }}
+          sx={{ mt: 3, p: 2, ml: 3 }}
         >
           <Card
-            sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}
+            sx={{ minWidth: 345, m: 3, maxWidth: 345, minHeight: 270 }}
             raised
           >
             <CardActionArea
@@ -65,7 +65,7 @@ function AdminHome() {
           </Card>
           {/* staff */}
           <Card
-            sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}
+            sx={{ minWidth: 345, m: 3, maxWidth: 345, minHeight: 270 }}
             raised
           >
             <CardActionArea
@@ -99,7 +99,7 @@ function AdminHome() {
 
           {/* templates */}
           <Card
-            sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}
+            sx={{ minWidth: 345, m: 3, maxWidth: 345, minHeight: 270 }}
             raised
           >
             <CardActionArea
@@ -111,7 +111,7 @@ function AdminHome() {
                 <Avatar
                   alt="Item Image"
                   src={require("./images/document.png")}
-                  sx={{ width: 150, height: 150 }}
+                  sx={{ width: 120, height: 120 }}
                 />
               </center>
               <CardContent>
@@ -121,10 +121,10 @@ function AdminHome() {
                   component="div"
                   style={{ fontWeight: 500, color: "#A3A3A3" }}
                 >
-                  Templates
+                  Upload Documents / Templates
                 </Typography>
                 <Typography variant="body2" color="text.secondary">
-                  Upload document/presentation templates
+                  Upload document/presentation templates for students.
                 </Typography>
               </CardContent>
             </CardActionArea>
@@ -132,7 +132,7 @@ function AdminHome() {
 
           {/* admin */}
           <Card
-            sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270, mt: 3 }}
+            sx={{ minWidth: 345, m: 3, maxWidth: 345, minHeight: 270 }}
             raised
           >
             <CardActionArea

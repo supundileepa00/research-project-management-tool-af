@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel index.html"
+    "start": "parcel index.html",
+    "dev": "concurrently \"npm start\" \"cd../backend && nodemon server.js\""
   },
   "author": "",
   "license": "ISC",
@@ -19,6 +20,7 @@
     "@mui/icons-material": "^5.8.0",
     "@mui/material": "^5.8.0",
     "axios": "^0.27.2",
+    "concurrently": "^7.2.1",
     "react": "^18.1.0",
     "react-dom": "^18.1.0",
     "react-router-dom": "^6.3.0",

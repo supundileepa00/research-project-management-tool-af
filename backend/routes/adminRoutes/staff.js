@@ -26,6 +26,7 @@ router.route("/registerStaffMember").post((req, res) => {
     .save()
     .then(() => {
       res.json("Staff Member Registration Successfull!!");
+      res.status(200);
     })
     .catch((err) => {
       console.log(err);
@@ -37,6 +38,7 @@ router.route("/").get((req, res) => {
   Staff.find()
     .then((staff) => {
       res.json(staff);
+      res.status(200);
     })
     .catch((err) => {
       console.log(err);
