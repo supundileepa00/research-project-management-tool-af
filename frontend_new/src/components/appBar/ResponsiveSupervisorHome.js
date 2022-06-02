@@ -21,7 +21,7 @@ import axios from "axios";
 const pages = [
   {
     name: "Supervisor Home",
-    link: "/supervisor-home",
+    link: "/supervisor",
   },
 
   {
