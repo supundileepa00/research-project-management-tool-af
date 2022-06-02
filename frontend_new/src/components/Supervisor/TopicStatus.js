@@ -18,6 +18,7 @@ import Paper from "@mui/material/Paper";
 import Swal from "sweetalert2";
 import ResponsiveSupervisorHome from "../appBar/ResponsiveSupervisorHome";
 //import ResponsiveAdminHome from "../../../appBar/ResponsiveAdminHome";
+import url from "../store/store";
 
 function Status() {
   const navigate = useNavigate();
@@ -44,7 +45,7 @@ function Status() {
   useEffect(() => {
     function getAcceptedTopics() {
       axios
-        .get("http://localhost:5000/rpmt/acceptedTopics")
+        .get(url + "/acceptedTopics")
         .then((res) => {
           setAcceptedTopics(res.data);
           console.log(res);
@@ -77,7 +78,7 @@ function Status() {
   useEffect(() => {
     function getRejectedTopics() {
       axios
-        .get("http://localhost:5000/rpmt/rejectedTopics")
+        .get(url + "/rejectedTopics")
         .then((res) => {
           setRejectedTopics(res.data);
           console.log(res);

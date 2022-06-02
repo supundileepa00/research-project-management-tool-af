@@ -11,6 +11,7 @@ import { container } from "@mui/material";
 import { Link, useNavigate } from "react-router-dom";
 import { Button, Grid, Paper } from "@mui/material";
 import ResponsiveSupervisorHome from "../appBar/ResponsiveSupervisorHome";
+import url from "../store/store";
 
 function viewTopics() {
   const navigate = useNavigate();
@@ -20,7 +21,7 @@ function viewTopics() {
   React.useEffect(() => {
     function getTopics() {
       axios
-        .get("http://localhost:5000/rpmt/topics/")
+        .get(url + "/topics/")
         .then((res) => {
           setTopics(res.data);
           console.log(res);
@@ -33,7 +34,7 @@ function viewTopics() {
   }, []);
   function getAllTopics() {
     axios
-      .get("http://localhost:5000/rpmt/topics/")
+      .get(url + "/topics/")
       .then((res) => {
         setTopics(res.data);
         console.log(res);
@@ -55,7 +56,7 @@ function viewTopics() {
     // };
     console.log(topic);
     axios
-      .post("http://localhost:5000/rpmt/acceptedTopics/add", topic)
+      .post(url + "/acceptedTopics/add", topic)
       .then((res) => {
         alert("Topic Accepted");
         console.log(res);
@@ -65,7 +66,7 @@ function viewTopics() {
       });
 
     axios
-      .delete("http://localhost:5000/rpmt/topics/delete/" + topic._id)
+      .delete(url + "/topics/delete/" + topic._id)
       .then((res) => {
         alert("Topic Deleted");
         getAllTopics();
@@ -80,7 +81,7 @@ function viewTopics() {
     console.log("Start Rejecting");
     console.log(topic);
     axios
-      .post("http://localhost:5000/rpmt/rejectedTopics/add", topic)
+      .post(url + "/rejectedTopics/add", topic)
       .then((res) => {
         alert("Topic Rejected");
         console.log(res);
@@ -90,7 +91,7 @@ function viewTopics() {
       });
 
     axios
-      .delete("http://localhost:5000/rpmt/topics/delete/" + topic._id)
+      .delete(url + "/topics/delete/" + topic._id)
       .then((res) => {
         alert("Topic Deleted");
         getAllTopics();

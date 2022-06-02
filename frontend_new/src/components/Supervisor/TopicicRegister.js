@@ -18,6 +18,7 @@ import CardMedia from "@mui/material/CardMedia";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import ResponsiveStudentHome from "../appBar/ResponsiveAppBarStudentHome";
+import url from "../store/store";
 
 //import TopicView from /components/Supervisor/TopicView';
 
@@ -59,7 +60,7 @@ function TopicRegister() {
     };
     console.log(newTopic);
     axios
-      .post("http://localhost:5000/rpmt/topics/registerTopic", newTopic)
+      .post(url + "/topics/registerTopic", newTopic)
       .then((res) => {
         alert("Topic Submitted");
         console.log(res);
