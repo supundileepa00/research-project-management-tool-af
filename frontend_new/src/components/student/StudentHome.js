@@ -25,7 +25,7 @@ function StudentHome() {
           spacing={10}
           sx={{ mt: 3, p: 2, ml: 3 }}
         >
-          <Card
+          {/* <Card
             sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}
             raised
           >
@@ -56,7 +56,7 @@ function StudentHome() {
                 </Typography>
               </CardContent>
             </CardActionArea>
-          </Card>
+          </Card> */}
           <Card
             sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}
             raised
@@ -122,7 +122,7 @@ function StudentHome() {
             </CardActionArea>
           </Card>
           <Card
-            sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270, mt: 3 }}
+            sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270 }}
             raised
           >
             <CardActionArea
@@ -224,7 +224,6 @@ function StudentHome() {
               maxWidth: 345,
               minHeight: 270,
               mt: 3,
-              ml: 46,
             }}
             raised
           >

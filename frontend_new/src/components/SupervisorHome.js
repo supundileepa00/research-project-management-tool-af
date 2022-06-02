@@ -57,6 +57,39 @@ function SupervisorHome() {
               </CardContent>
             </CardActionArea>
           </Card>
+
+          <Card
+            sx={{ minWidth: 345, mr: 3, maxWidth: 345, minHeight: 270, mt: 3 }}
+            raised
+          >
+            <CardActionArea
+              onClick={() => {
+                navigate("/student/viewResearch");
+              }}
+            >
+              <center>
+                <Avatar
+                  alt="Item Image"
+                  src={require("./admin/images/researchIcon.png")}
+                  sx={{ width: 150, height: 150 }}
+                />
+              </center>
+              <CardContent>
+                <Typography
+                  gutterBottom
+                  variant="h5"
+                  component="div"
+                  style={{ fontWeight: 500, color: "#A3A3A3" }}
+                >
+                  View Research
+                </Typography>
+                <Typography variant="body2" color="text.secondary">
+                  View All researches, delete researches and update research
+                  details.
+                </Typography>
+              </CardContent>
+            </CardActionArea>
+          </Card>
         </Grid>
       </Container>
       <br />
