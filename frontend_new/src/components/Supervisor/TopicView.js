@@ -67,7 +67,7 @@ function viewTopics() {
     axios
       .delete("http://localhost:5000/rpmt/topics/delete/" + topic._id)
       .then((res) => {
-        alert("Topic Deleted");
+        // alert("Topic Deleted");
         getAllTopics();
         console.log(res);
       })
@@ -82,7 +82,7 @@ function viewTopics() {
     axios
       .post("http://localhost:5000/rpmt/rejectedTopics/add", topic)
       .then((res) => {
-        alert("Topic Rejected");
+        // alert("Topic Rejected");
         console.log(res);
       })
       .catch((err) => {

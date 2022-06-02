@@ -91,6 +91,7 @@ export default function ViewGroup() {
                   <Table aria-label="simple table">
                     <TableHead>
                       <TableRow>
+                        <TableCell>Group ID</TableCell>
                         <TableCell>Leader</TableCell>
                         <TableCell align="right">Member 1</TableCell>
                         <TableCell align="right">Member 2</TableCell>
@@ -101,6 +102,9 @@ export default function ViewGroup() {
                     <TableBody>
                       {group.map((group, key) => (
                         <TableRow key={key}>
+                          <TableCell component="th" scope="row">
+                            {group.groupID}
+                          </TableCell>
                           <TableCell component="th" scope="row">
                             {group.leader}
                           </TableCell>
