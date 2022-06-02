@@ -142,7 +142,7 @@ function ViewTemplates() {
                   color: "#455a64",
                 }}
                 onClick={() => {
-                  window.open(template.templateDocument);
+                  window.open(template.templateDocument, "_blank");
                 }}
               >
                 <img src={require("./icons/presentation.png")} width="50"></img>
