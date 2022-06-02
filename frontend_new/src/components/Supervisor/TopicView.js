@@ -68,7 +68,7 @@ function viewTopics() {
     axios
       .delete(url + "/topics/delete/" + topic._id)
       .then((res) => {
-        alert("Topic Deleted");
+        // alert("Topic Deleted");
         getAllTopics();
         console.log(res);
       })
@@ -83,7 +83,7 @@ function viewTopics() {
     axios
       .post(url + "/rejectedTopics/add", topic)
       .then((res) => {
-        alert("Topic Rejected");
+        // alert("Topic Rejected");
         console.log(res);
       })
       .catch((err) => {
